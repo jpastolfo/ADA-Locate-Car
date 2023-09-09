@@ -1,10 +1,12 @@
+package modelo;
+
 import java.util.List;
 
 public class ClienteFisico extends Cliente {
     private String cpf;
 
-    public ClienteFisico(String nome, String endereco, List<Carro> carrosAlugados, String cpf) {
-        super(nome, endereco, carrosAlugados);
+    public ClienteFisico(Integer id, String nome, String endereco, List<Carro> carrosAlugados, String cpf) {
+        super(id, nome, endereco, carrosAlugados);
         this.cpf = cpf;
     }
 
