@@ -1,14 +1,26 @@
+package modelo;
+
 import java.util.List;
 
 public abstract class Cliente {
+    private Integer id;
     private String nome;
     private String endereco;
     private List<Carro> carrosAlugados;
 
-    public Cliente(String nome, String endereco, List<Carro> carrosAlugados) {
+    public Cliente(Integer id, String nome, String endereco, List<Carro> carrosAlugados) {
+        this.id = id;
         this.nome = nome;
         this.endereco = endereco;
         this.carrosAlugados = carrosAlugados;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -38,8 +50,10 @@ public abstract class Cliente {
     @Override
     public String toString() {
         return "Cliente{" +
-                "nome='" + nome + '\'' +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
                 ", endereco='" + endereco + '\'' +
-                ", carrosAlugados=" + carrosAlugados;
+                ", carrosAlugados=" + carrosAlugados +
+                '}';
     }
 }

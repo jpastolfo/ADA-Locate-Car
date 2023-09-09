@@ -1,15 +1,19 @@
-import java.util.ArrayList;
-import java.util.List;
+import modelo.Carro;
+import modelo.Tamanho;
+import persistencia.memoria.CarroRepositorioMemoria;
+import servico.CarroServico;
 
 public class Main {
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
 
-        ClienteFisico joao = new ClienteFisico("João", "Campinas", new ArrayList<>(), "123456789-0");
-        ClienteJuridico empresaJoao = new ClienteJuridico("Empresa","Campinas",new ArrayList<>());
+        CarroRepositorioMemoria carroRepositorioMemoria = new CarroRepositorioMemoria();
+        CarroServico servico = new CarroServico(carroRepositorioMemoria);
 
-        System.out.println(joao.toString());
-        System.out.println(empresaJoao.toString());
+        Carro carro1 = new Carro(1,"civic", "honda", "prata","419s8s-1s1", Tamanho.MEDIO);
 
+        servico.cadastrarCarro(carro1);
+        
     }
+
 }
