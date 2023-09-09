@@ -23,8 +23,8 @@ public abstract class RepositorioMemoriaAbstrato<E extends Entidade<ID>, ID> imp
     }
 
     @Override
-    public boolean remover(E entidade) {
-        return removerPorId(entidade.getId());
+    public void remover(E entidade) {
+        removerPorId(entidade.getId());
     }
 
     @Override

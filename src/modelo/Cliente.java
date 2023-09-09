@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.List;
 
-public abstract class Cliente {
+public abstract class Cliente implements Entidade<Integer>{
     private Integer id;
     private String nome;
     private String endereco;
@@ -15,8 +15,9 @@ public abstract class Cliente {
         this.carrosAlugados = carrosAlugados;
     }
 
+    @Override
     public Integer getId() {
-        return id;
+        return null;
     }
 
     public void setId(Integer id) {

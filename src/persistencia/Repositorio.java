@@ -8,7 +8,7 @@ public interface Repositorio<T extends Entidade<ID>, ID> {
 
     T salvar(T entidade);
 
-    boolean remover(T entidade);
+    void remover(T entidade);
 
     boolean removerPorId(ID identificador);
 
