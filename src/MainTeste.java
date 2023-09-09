@@ -1,12 +1,18 @@
 import modelo.Carro;
+import modelo.ClienteJuridico;
 import modelo.Tamanho;
 import persistencia.memoria.CarroRepositorioMemoria;
+import persistencia.memoria.ClienteFisicoRepositorioMemoria;
+import persistencia.memoria.ClienteJuridicoRepositorioMemoria;
 import servico.CarroServico;
+import servico.ClienteFisicoServico;
+import servico.ClienteJuridicoServico;
 
 public class MainTeste {
 
     public static void main(String[] args) {
 
+        // CARRO
         CarroRepositorioMemoria carroRepositorioMemoria = new CarroRepositorioMemoria();
         CarroServico servico = new CarroServico(carroRepositorioMemoria);
 
@@ -39,6 +45,22 @@ public class MainTeste {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+
+        // CLIENTE FÍSICO
+        ClienteFisicoRepositorioMemoria clienteFisicoRepositorioMemoria = new ClienteFisicoRepositorioMemoria();
+        ClienteFisicoServico clienteFisicoServico = new ClienteFisicoServico(clienteFisicoRepositorioMemoria);
+
+        // Buscar cliente físico por id
+
+
+
+
+        // CLIENTE JURÍDICO
+        ClienteJuridicoRepositorioMemoria clienteJuridicoRepositorioMemoria = new ClienteJuridicoRepositorioMemoria();
+        ClienteJuridicoServico clienteJuridicoServico = new ClienteJuridicoServico(clienteJuridicoRepositorioMemoria);
+
+        // Buscar cliente jurídico por id
     }
 
 }

@@ -31,7 +31,6 @@ public class CarroServico {
         } else {
             return carroRepositorio.buscarPorId(id);
         }
-
     }
 
     private boolean existeCarro(Integer id) throws Exception {
