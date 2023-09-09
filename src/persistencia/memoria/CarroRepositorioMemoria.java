@@ -15,4 +15,21 @@ public class CarroRepositorioMemoria extends RepositorioMemoriaAbstrato<Carro, I
         return null;
     }
 
+    @Override
+    public boolean removerCarroPorId(Integer id) {
+        Carro carroRemovido = null;
+        for (Carro carro : listarTodos()) {
+            if (carro.getId().equals(id)) {
+                carroRemovido = carro;
+                break;
+            }
+        }
+        if (carroRemovido != null) {
+            remover(carroRemovido);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

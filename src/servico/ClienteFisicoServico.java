@@ -12,7 +12,7 @@ public class ClienteFisicoServico {
         this.clienteFisicoRepositorioRepositorio = clienteFisicoRepositorioRepositorio;
     }
 
-    public ClienteFisico cadastrarClienteFisico(ClienteFisico cliente){
+    public ClienteFisico cadastrar(ClienteFisico cliente){
         try {
             if (!existeCliente(cliente.getId())) {
                 System.out.println("Cliente Físico cadastrado!");

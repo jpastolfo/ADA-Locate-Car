@@ -11,7 +11,7 @@ public class CarroServico {
         this.carroRepositorio = carroRepositorio;
     }
 
-    public Carro cadastrarCarro(Carro carro){
+    public Carro cadastrar(Carro carro){
         try {
             if (!existeCarro(carro.getId())) {
                 System.out.println("Carro cadastrado!");
@@ -30,6 +30,16 @@ public class CarroServico {
             throw new Exception("Carro não encontrado.");
         } else {
             return carroRepositorio.buscarPorId(id);
+        }
+    }
+
+    public boolean removerCarroPorId(Integer id) {
+        if (carroRepositorio.removerCarroPorId(id)) {
+            System.out.println("Carro removido!");
+            return true;
+        } else {
+            System.out.println("Não foi possível remover");
+            return false;
         }
     }
 
