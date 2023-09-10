@@ -1,10 +1,13 @@
+package modelo;
+
 import java.util.List;
 
 public class ClienteJuridico extends Cliente {
     String cnpj;
 
-    public ClienteJuridico(String nome, String endereco, List<Carro> carrosAlugados) {
-        super(nome, endereco, carrosAlugados);
+    public ClienteJuridico(Integer id, String nome, String endereco, List<Carro> carrosAlugados, String cnpj) {
+        super(id, nome, endereco, carrosAlugados);
+        this.cnpj = cnpj;
     }
 
     public String getCnpj() {

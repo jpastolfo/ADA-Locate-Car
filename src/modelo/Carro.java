@@ -1,11 +1,16 @@
-public class Carro {
+package modelo;
+
+public class Carro implements Entidade<Integer> {
+
+    private Integer id;
     private String modelo;
     private String marca;
     private String cor;
     private String placa;
     private Tamanho tamanho;
 
-    public Carro(String modelo, String marca, String cor, String placa, Tamanho tamanho) {
+    public Carro(Integer id, String modelo, String marca, String cor, String placa, Tamanho tamanho) {
+        this.id = id;
         this.modelo = modelo;
         this.marca = marca;
         this.cor = cor;
@@ -13,7 +18,15 @@ public class Carro {
         this.tamanho = tamanho;
     }
 
-    public String getModelo() {
+    @Override
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {this.id = id; }
+
+    @Override
+    public String getNome() {
         return modelo;
     }
 
@@ -44,4 +57,13 @@ public class Carro {
     public void setPlaca(String placa) {
         this.placa = placa;
     }
+
+    public Tamanho getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(Tamanho tamanho) {
+        this.tamanho = tamanho;
+    }
+
 }
