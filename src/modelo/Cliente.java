@@ -17,13 +17,14 @@ public abstract class Cliente implements Entidade<Integer>{
 
     @Override
     public Integer getId() {
-        return null;
+        return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
+    @Override
     public String getNome() {
         return nome;
     }

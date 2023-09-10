@@ -56,6 +56,11 @@ public class TerminalTeste {
             throw new RuntimeException(e);
         }
 
+        // Buscar Carros Por Parte do Nome
+
+
+        // Atualizar Carro
+
 
 
         // CLIENTE FÍSICO
@@ -63,8 +68,6 @@ public class TerminalTeste {
         ClienteFisicoServico clienteFisicoServico = new ClienteFisicoServico(clienteFisicoRepositorioMemoria);
 
         // Buscar cliente físico por id
-
-
 
 
         // CLIENTE JURÍDICO

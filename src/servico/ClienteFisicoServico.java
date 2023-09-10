@@ -1,6 +1,7 @@
 package servico;
 
 
+import modelo.Carro;
 import modelo.ClienteFisico;
 import persistencia.ClienteFisicoRepositorio;
 
@@ -32,6 +33,9 @@ public class ClienteFisicoServico {
         } else {
             return clienteFisicoRepositorioRepositorio.buscarPorId(id);
         }
+    }
+
+    public void alugar(Carro carro) {
     }
 
     private boolean existeCliente(Integer id) throws Exception {

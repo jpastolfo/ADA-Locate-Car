@@ -39,6 +39,27 @@ public class CarroServico {
         return carroRepositorio.listarTodos();
     }
 
+    public List<Carro> buscarPorParteNome(String nomeParcial) {
+        return carroRepositorio.buscarPorParteNome(nomeParcial);
+    }
+
+    public void atualizar(Carro carro) {
+        try {
+            if (!existeCarro(carro.getId())) {
+                System.out.println("Erro. Não encontrado.");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        Carro carroAtualizado = new Carro(carro.getId(), carro.getNome(), carro.getMarca(),
+                 carro.getCor(), carro.getPlaca(), carro.getTamanho());
+
+        carroRepositorio.salvar(carroAtualizado);
+
+        System.out.println("Carro atualizado!");
+    }
+
     public boolean removerCarroPorId(Integer id) {
         if (carroRepositorio.removerPorId(id)) {
             System.out.println("Carro removido!");
