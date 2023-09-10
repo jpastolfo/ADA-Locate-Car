@@ -2,14 +2,14 @@ package menu;
 
 import java.util.Scanner;
 
-public class MainControlador {
+public class TerminalControlador {
 
     protected static void controlarClienteMenu(Scanner scanner) {
         int escolha = -1;
 
         while (escolha != 0) {
 
-            MainImpressora.imprimirClienteMenu();
+            TerminalImpressora.imprimirClienteMenu();
             escolha = scanner.nextInt();
             scanner.nextLine();
 
@@ -32,7 +32,7 @@ public class MainControlador {
 
         while (escolha != 0) {
 
-            MainImpressora.imprimirCarroMenu();
+            TerminalImpressora.imprimirCarroMenu();
             escolha = scanner.nextInt();
             scanner.nextLine();
 

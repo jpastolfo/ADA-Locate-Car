@@ -1,5 +1,4 @@
 import modelo.Carro;
-import modelo.ClienteJuridico;
 import modelo.Tamanho;
 import persistencia.memoria.CarroRepositorioMemoria;
 import persistencia.memoria.ClienteFisicoRepositorioMemoria;
@@ -8,7 +7,7 @@ import servico.CarroServico;
 import servico.ClienteFisicoServico;
 import servico.ClienteJuridicoServico;
 
-public class MainTeste {
+public class TerminalTeste {
 
     public static void main(String[] args) {
 

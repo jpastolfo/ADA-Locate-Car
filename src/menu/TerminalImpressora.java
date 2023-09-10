@@ -1,6 +1,6 @@
 package menu;
 
-public class MainImpressora {
+public class TerminalImpressora {
 
     protected static void imprimirMenu() {
         System.out.println("Bem-vindo(a) ao ADA LocateCar!");
