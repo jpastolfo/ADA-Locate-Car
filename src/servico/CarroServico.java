@@ -3,6 +3,8 @@ package servico;
 import modelo.Carro;
 import persistencia.CarroRepositorio;
 
+import java.util.List;
+
 public class CarroServico {
 
     private final CarroRepositorio carroRepositorio;
@@ -33,8 +35,12 @@ public class CarroServico {
         }
     }
 
+    public List<Carro> listarTodos() {
+        return carroRepositorio.listarTodos();
+    }
+
     public boolean removerCarroPorId(Integer id) {
-        if (carroRepositorio.removerCarroPorId(id)) {
+        if (carroRepositorio.removerPorId(id)) {
             System.out.println("Carro removido!");
             return true;
         } else {
