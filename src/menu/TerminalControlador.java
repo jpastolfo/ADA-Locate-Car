@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class TerminalControlador {
 
+
     protected static void controlarClienteMenu(Scanner scanner) {
         int escolha = -1;
 

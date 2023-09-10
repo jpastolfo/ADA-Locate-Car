@@ -35,9 +35,6 @@ public class ClienteFisicoServico {
         }
     }
 
-    public void alugar(Carro carro) {
-    }
-
     private boolean existeCliente(Integer id) throws Exception {
         ClienteFisico clienteEncontrado = buscarPorId(id);
         return clienteEncontrado != null;
