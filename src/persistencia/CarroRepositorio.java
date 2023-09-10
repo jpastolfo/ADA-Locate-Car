@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CarroRepositorio extends Repositorio<Carro, Integer> {
 
+    List<Carro> buscarPorParteNome(String nomeParcial);
+
 }
