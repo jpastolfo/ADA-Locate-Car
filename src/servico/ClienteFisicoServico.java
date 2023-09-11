@@ -2,22 +2,27 @@ package servico;
 
 
 import modelo.Carro;
+import modelo.Cliente;
 import modelo.ClienteFisico;
 import persistencia.ClienteFisicoRepositorio;
 
+import java.util.List;
+import java.util.Scanner;
+
 public class ClienteFisicoServico {
 
-    private final ClienteFisicoRepositorio clienteFisicoRepositorioRepositorio;
+    private final ClienteFisicoRepositorio clienteFisicoRepositorio;
 
-    public ClienteFisicoServico(ClienteFisicoRepositorio clienteFisicoRepositorioRepositorio) {
-        this.clienteFisicoRepositorioRepositorio = clienteFisicoRepositorioRepositorio;
+    public ClienteFisicoServico(ClienteFisicoRepositorio clienteFisicoRepositorio) {
+        this.clienteFisicoRepositorio = clienteFisicoRepositorio;
     }
 
-    public ClienteFisico cadastrar(ClienteFisico cliente){
+    public ClienteFisico cadastrar(ClienteFisico cliente) {
         try {
+
             if (!existeCliente(cliente.getId())) {
                 System.out.println("Cliente Físico cadastrado!");
-                return clienteFisicoRepositorioRepositorio.salvar(cliente);
+                return clienteFisicoRepositorio.salvar(cliente);
             } else {
                 System.out.println("Cliente Físico já existe");
             }
@@ -31,11 +36,30 @@ public class ClienteFisicoServico {
         if (id == null) {
             throw new Exception("Cliente Físico não encontrado.");
         } else {
-            return clienteFisicoRepositorioRepositorio.buscarPorId(id);
+            return clienteFisicoRepositorio.buscarPorId(id);
         }
     }
 
-    public void alugar(Carro carro) {
+    public List<ClienteFisico> listarTodos() {
+        return clienteFisicoRepositorio.listarTodos();
+    }
+
+    public ClienteFisico atualizar(Integer id, ClienteFisico cliente) {
+        try {
+            if (!existeCliente(id)) {
+                System.out.println("Erro. Não encontrado.");
+            }
+
+            ClienteFisico clienteExistente = clienteFisicoRepositorio.buscarPorId(id);
+            clienteExistente.setNome(cliente.getNome());
+            clienteExistente.setCpf(cliente.getCpf());
+            clienteExistente.setEndereco(cliente.getEndereco());
+
+            return clienteFisicoRepositorio.salvar(clienteExistente);
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private boolean existeCliente(Integer id) throws Exception {
