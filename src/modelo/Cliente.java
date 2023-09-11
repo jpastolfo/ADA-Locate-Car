@@ -15,6 +15,9 @@ public abstract class Cliente implements Entidade<Integer>{
         this.carrosAlugados = carrosAlugados;
     }
 
+    public Cliente() {
+    }
+
     @Override
     public Integer getId() {
         return id;
