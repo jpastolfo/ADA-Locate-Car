@@ -27,18 +27,18 @@ public class TerminalCliente {
                 "Rua das Camelias, 654, São Bernardo, São Paulo", null, "954.654.655-56");
 
 
-        System.out.println("********************** \nCadastrando Cliente Fisico 1...");
+        System.out.println("\n********************** \nCadastrando Cliente Fisico 1...");
         clienteFisicoServico.cadastrar(clienteFisico1);
 
-        System.out.println("********************** \nCadastrando Cliente Fisico 2...");
+        System.out.println("\n********************** \nCadastrando Cliente Fisico 2...");
         clienteFisicoServico.cadastrar(clienteFisico2);
 
-        System.out.println("********************** \nCadastrando Cliente Fisico 3...");
+        System.out.println("\n********************** \nCadastrando Cliente Fisico 3...");
         clienteFisicoServico.cadastrar(clienteFisico3);
         // Buscar cliente físico por id
 
         try {
-            System.out.println("********************** \nBuscando Cliente Fisico de id 1");
+            System.out.println("\n********************** \nBuscando Cliente Fisico de id 1");
             ClienteFisico clienteFisicoBuscado1 = clienteFisicoServico.buscarPorId(1);
             System.out.println("ClienteFisico encontrado! \n id: " + clienteFisicoBuscado1.getId());
         } catch (Exception e) {
@@ -46,7 +46,7 @@ public class TerminalCliente {
         }
 
         try {
-            System.out.println("********************** \nBuscando Cliente Fisico de id 2");
+            System.out.println("\n********************** \nBuscando Cliente Fisico de id 2");
             ClienteFisico clienteFisicoBuscado2 = clienteFisicoServico.buscarPorId(2);
             System.out.println("Carro encontrado! \n id: " + clienteFisicoBuscado2.getId());
         } catch (Exception e) {
@@ -67,18 +67,18 @@ public class TerminalCliente {
                 "Rua Fernando Guimaraes, 484, Marilia, SP", null, "12.232.343/3434-35");
 
 
-        System.out.println("********************** \nCadastrando Cliente Juridico 1...");
+        System.out.println("\n********************** \nCadastrando Cliente Juridico 1...");
         clienteJuridicoServico.cadastrar(clienteJuridico1);
 
-        System.out.println("********************** \nCadastrando carro 2...");
+        System.out.println("\n********************** \nCadastrando carro 2...");
         clienteJuridicoServico.cadastrar(clienteJuridico2);
 
-        System.out.println("********************** \nCadastrando carro 2...");
+        System.out.println("\n********************** \nCadastrando carro 2...");
         clienteJuridicoServico.cadastrar(clienteJuridico3);
 
         // Buscar cliente jurídico por id
         try {
-            System.out.println("********************** \nBuscando Cliente Juridico de id 1");
+            System.out.println("\n********************** \nBuscando Cliente Juridico de id 1");
             ClienteJuridico clienteJuridicoBuscado1 = clienteJuridicoServico.buscarPorId(1);
             System.out.println("ClienteJuridico encontrado! \n id: " + clienteJuridicoBuscado1.getId());
         } catch (Exception e) {
@@ -86,7 +86,7 @@ public class TerminalCliente {
         }
 
         try {
-            System.out.println("********************** \nBuscando Cliente Juridico de id 2");
+            System.out.println("\n********************** \nBuscando Cliente Juridico de id 2");
             ClienteJuridico clienteJuridicoBuscado2 = clienteJuridicoServico.buscarPorId(2);
             System.out.println("Carro encontrado! \n id: " + clienteJuridicoBuscado2.getId());
         } catch (Exception e) {
