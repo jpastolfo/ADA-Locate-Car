@@ -1,7 +1,5 @@
-import modelo.Carro;
 import modelo.ClienteFisico;
 import modelo.ClienteJuridico;
-import modelo.Tamanho;
 import persistencia.memoria.ClienteFisicoRepositorioMemoria;
 import persistencia.memoria.ClienteJuridicoRepositorioMemoria;
 import servico.ClienteFisicoServico;
@@ -15,6 +13,7 @@ public class TerminalCliente {
     private static final String BUSCA_CLIENTE_FISICO_MESSAGEM = "\n********************** \nBuscando Cliente Físico de id %d";
     private static final String ATUALIZACAO_CLIENTE_FISICO_MESSAGEM = "\n********************** \nAtualizando Cliente Físico de id %d";
     private static final String LISTAGEM_CLIENTE_FISICO_MESSAGEM = "\n********************** \nListando todos os Clientes Físicos";
+
     private static final String CADASTRO_CLIENTE_JURIDICO_MESSAGEM = "\n********************** \nCadastrando Cliente Jurídico %d...";
     private static final String BUSCA_CLIENTE_JURIDICO_MESSAGE = "\n********************** \nBuscando Cliente Jurídico de id %d";
     private static final String ATUALIZACAO_CLIENTE_JURIDICO_MESSAGEM = "\n********************** \nAtualizando Cliente Jurídico de id %d";
@@ -35,6 +34,7 @@ public class TerminalCliente {
 
         ClienteFisico clienteFisico3 = new ClienteFisico(2,"Fernando Souza",
                 "Rua das Camelias, 654, São Bernardo, São Paulo", null, "954.654.655-56");
+
 
 
         System.out.println(String.format(CADASTRO_CLIENTE_FISICO_MESSAGEM, clienteFisico1.getId()));
@@ -90,10 +90,10 @@ public class TerminalCliente {
         ClienteJuridico clienteJuridico2 = new ClienteJuridico(2,"Dell Ltda",
                 "Rua Fernando Guimaraes, 484, Marilia, SP", null, "12.232.343/3434-35");
 
-        ClienteJuridico clienteJuridico3 = new ClienteJuridico(2,"Dell Ltda",
+        ClienteJuridico clienteJuridico3 = new ClienteJuridico(3,"Dell 3 Ltda",
                 "Rua Fernando Guimaraes, 484, Marilia, SP", null, "12.232.343/3434-35");
 
-
+        // CADASTRAR CLIENTES JURÍDICOS
         System.out.println(String.format(CADASTRO_CLIENTE_JURIDICO_MESSAGEM, clienteJuridico1.getId()));
         clienteJuridicoServico.cadastrar(clienteJuridico1);
 
