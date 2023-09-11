@@ -30,9 +30,9 @@ public class TerminalCarro {
         CarroServico carroServico = new CarroServico(carroRepositorioMemoria);
 
         // CADASTRANDO CARROS
-        Carro carro1 = new Carro(1, "honda civic", "honda", "prata", "419s8s-1s1", Tamanho.MEDIO);
-        Carro carro2 = new Carro(2, "honda civic 2", "honda 2", "prata 2", "234242419s8s-1s1", Tamanho.PEQUENO);
-        Carro carro3 = new Carro(3, "honda civic 3", "honda 3", "prata 3", "23dadada", Tamanho.SUV);
+        Carro carro1 = new Carro("FJH358", "honda civic", "honda", "prata", "419s8s-1s1", Tamanho.MEDIO);
+        Carro carro2 = new Carro("NTK321", "honda civic 2", "honda 2", "prata 2", "234242419s8s-1s1", Tamanho.PEQUENO);
+        Carro carro3 = new Carro("RJM943", "honda civic 3", "honda 3", "prata 3", "23dadada", Tamanho.SUV);
 
         System.out.println(String.format(CADASTRO_MESSAGEM, carro1.getId()));
         carroServico.cadastrar(carro1);
@@ -46,7 +46,7 @@ public class TerminalCarro {
         // BUSCAR CARRO DE ID 1 E ID 2
         try {
             System.out.println(String.format(BUSCA_MESSAGEM, 1));
-            Carro carroBuscado1 = carroServico.buscarPorId(1);
+            Carro carroBuscado1 = carroServico.buscarPorId("FJH358");
             System.out.println("Carro encontrado! \n id: " + carroBuscado1.getId());
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -54,7 +54,7 @@ public class TerminalCarro {
 
         try {
             System.out.println(String.format(BUSCA_MESSAGEM, 2));
-            Carro carroBuscado2 = carroServico.buscarPorId(2);
+            Carro carroBuscado2 = carroServico.buscarPorId("NTK321");
             System.out.println("Carro encontrado! \n id: " + carroBuscado2.getId());
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -81,10 +81,10 @@ public class TerminalCarro {
         }
 
         // ATUALIZAR CARRO
-        Carro carro1Atualizado = new Carro(1, "honda civic atualizado", "honda atualizado",
-                "prata atualizado", "23dadassda", Tamanho.MEDIO);
-        System.out.println(String.format(ATUALIZACAO_MESSAGEM, 1));
-        carroServico.atualizar(1, carro1Atualizado);
+//        Carro carro1Atualizado = new Carro(1, "honda civic atualizado", "honda atualizado",
+//                "prata atualizado", "23dadassda", Tamanho.MEDIO);
+//        System.out.println(String.format(ATUALIZACAO_MESSAGEM, 1));
+//        carroServico.atualizar(1, carro1Atualizado);
 
         // LISTAR TODOS CARROS
         System.out.println(LISTAGEM_MESSAGEM);
