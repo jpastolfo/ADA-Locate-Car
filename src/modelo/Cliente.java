@@ -3,12 +3,14 @@ package modelo;
 import java.util.List;
 
 public abstract class Cliente implements Entidade<Integer>{
-    private Integer id;
+
+
+    private String id;
     private String nome;
     private String endereco;
     private List<Carro> carrosAlugados;
 
-    public Cliente(Integer id, String nome, String endereco, List<Carro> carrosAlugados) {
+    public Cliente(String id, String nome, String endereco, List<Carro> carrosAlugados) {
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
@@ -18,14 +20,6 @@ public abstract class Cliente implements Entidade<Integer>{
     public Cliente() {
     }
 
-    @Override
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     @Override
     public String getNome() {

@@ -2,14 +2,14 @@ package modelo;
 
 public class Carro implements Entidade<Integer> {
 
-    private Integer id;
+    private String id;
     private String modelo;
     private String marca;
     private String cor;
     private String placa;
     private Tamanho tamanho;
 
-    public Carro(Integer id, String modelo, String marca, String cor, String placa, Tamanho tamanho) {
+    public Carro(String id, String modelo, String marca, String cor, String placa, Tamanho tamanho) {
         this.id = id;
         this.modelo = modelo;
         this.marca = marca;
@@ -19,11 +19,11 @@ public class Carro implements Entidade<Integer> {
     }
 
     @Override
-    public Integer getId() {
-        return id;
+    public String getId() {
+        return placa;
     }
 
-    public void setId(Integer id) {this.id = id; }
+    public void setId(String id) {this.id = id; }
 
     @Override
     public String getNome() {

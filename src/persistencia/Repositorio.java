@@ -14,6 +14,6 @@ public interface Repositorio<T extends Entidade<ID>, ID> {
 
     List<T> listarTodos();
 
-    T buscarPorId(ID identificador);
+    T buscarPorId(String identificador);
 
 }

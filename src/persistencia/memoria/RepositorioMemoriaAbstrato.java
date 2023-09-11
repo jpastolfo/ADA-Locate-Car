@@ -11,7 +11,8 @@ import java.util.Map;
 
 public abstract class RepositorioMemoriaAbstrato<E extends Entidade<ID>, ID> implements Repositorio<E, ID> {
 
-    private final Map<ID, E> dados = new HashMap<>();
+    private final Map<String, E> dados = new HashMap<>();
+
 
     @Override
     public E salvar(E entidade) {
@@ -28,8 +29,8 @@ public abstract class RepositorioMemoriaAbstrato<E extends Entidade<ID>, ID> imp
         removerPorId(entidade.getId());
     }
 
-    @Override
-    public boolean removerPorId(ID identificador) {
+
+    public boolean removerPorId(String identificador) {
         E entidadeRemovida = dados.remove(identificador);
         return entidadeRemovida != null;
     }
@@ -39,8 +40,8 @@ public abstract class RepositorioMemoriaAbstrato<E extends Entidade<ID>, ID> imp
         return new ArrayList<>(dados.values());
     }
 
-    @Override
-    public E buscarPorId(ID identificador) {
+
+    public E buscarPorId(String identificador) {
         return dados.get(identificador);
     }
 
