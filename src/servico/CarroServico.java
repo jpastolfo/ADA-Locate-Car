@@ -63,7 +63,7 @@ public class CarroServico {
         }
     }
 
-    public boolean removerCarroPorId(Integer id) {
+    public boolean removerCarroPorId(String id) {
         if (carroRepositorio.removerPorId(id)) {
             System.out.println("Carro removido!");
             return true;

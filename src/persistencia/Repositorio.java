@@ -10,7 +10,7 @@ public interface Repositorio<T extends Entidade<ID>, ID> {
 
     void remover(T entidade);
 
-    boolean removerPorId(ID identificador);
+    boolean removerPorId(String identificador);
 
     List<T> listarTodos();
 

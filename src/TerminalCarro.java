@@ -62,7 +62,7 @@ public class TerminalCarro {
 
         // REMOVER CARRO POR ID E DEPOIS BUSCAR PARA VERIFICAR SE FOI REMOVIDO
         System.out.println(String.format(REMOCAO_MESSAGEM, 2));
-        carroServico.removerCarroPorId(2);
+        carroServico.removerCarroPorId("carro");
 
         /* Não é necessário buscar novamente o carro removido
         try {
