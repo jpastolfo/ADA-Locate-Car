@@ -43,21 +43,24 @@ public class CarroServico {
         return carroRepositorio.buscarPorParteNome(nomeParcial);
     }
 
-    public void atualizar(Carro carro) {
+    public Carro atualizar(Integer id, Carro carro) {
         try {
-            if (!existeCarro(carro.getId())) {
+            if (!existeCarro(id)) {
                 System.out.println("Erro. Não encontrado.");
             }
+
+        Carro carroExistente = carroRepositorio.buscarPorId(id);
+        carroExistente.setModelo(carro.getNome());
+        carroExistente.setMarca(carro.getMarca());
+        carroExistente.setCor(carro.getCor());
+        carroExistente.setPlaca(carro.getPlaca());
+        carroExistente.setTamanho(carro.getTamanho());
+
+        return carroRepositorio.salvar(carroExistente);
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-        Carro carroAtualizado = new Carro(carro.getId(), carro.getNome(), carro.getMarca(),
-                 carro.getCor(), carro.getPlaca(), carro.getTamanho());
-
-        carroRepositorio.salvar(carroAtualizado);
-
-        System.out.println("Carro atualizado!");
     }
 
     public boolean removerCarroPorId(Integer id) {
