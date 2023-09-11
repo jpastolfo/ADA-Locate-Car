@@ -3,10 +3,10 @@ package menu;
 import servico.ClienteFisicoServico;
 
 import java.util.Scanner;
+import servico.CarroServico;
+import servico.ClienteJuridicoServico;
 
 public class TerminalControlador {
-
-
     protected static void controlarClienteMenu(Scanner scanner) {
         int escolha = -1;
 

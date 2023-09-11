@@ -1,5 +1,9 @@
 package menu;
 
+import servico.CarroServico;
+import servico.ClienteFisicoServico;
+import servico.ClienteJuridicoServico;
+
 import java.util.Scanner;
 
 public class TerminalUI {
