@@ -1,5 +1,6 @@
 package persistencia.memoria;
 
+import modelo.Carro;
 import modelo.Entidade;
 import persistencia.Repositorio;
 
@@ -42,4 +43,5 @@ public abstract class RepositorioMemoriaAbstrato<E extends Entidade<ID>, ID> imp
     public E buscarPorId(ID identificador) {
         return dados.get(identificador);
     }
+
 }

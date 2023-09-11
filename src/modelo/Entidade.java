@@ -6,4 +6,6 @@ public interface Entidade<T> extends Serializable {
 
     T getId();
 
+    String getNome();
+
 }

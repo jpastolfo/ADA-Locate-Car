@@ -25,7 +25,8 @@ public class Carro implements Entidade<Integer> {
 
     public void setId(Integer id) {this.id = id; }
 
-    public String getModelo() {
+    @Override
+    public String getNome() {
         return modelo;
     }
 
