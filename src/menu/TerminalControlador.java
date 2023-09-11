@@ -1,5 +1,7 @@
 package menu;
 
+import servico.ClienteFisicoServico;
+
 import java.util.Scanner;
 
 public class TerminalControlador {
