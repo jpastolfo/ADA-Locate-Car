@@ -2,9 +2,11 @@ package servico;
 
 
 import modelo.Carro;
+import modelo.Cliente;
 import modelo.ClienteFisico;
 import persistencia.ClienteFisicoRepositorio;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class ClienteFisicoServico {
@@ -35,6 +37,28 @@ public class ClienteFisicoServico {
             throw new Exception("Cliente Físico não encontrado.");
         } else {
             return clienteFisicoRepositorio.buscarPorId(id);
+        }
+    }
+
+    public List<ClienteFisico> listarTodos() {
+        return clienteFisicoRepositorio.listarTodos();
+    }
+
+    public ClienteFisico atualizar(Integer id, ClienteFisico cliente) {
+        try {
+            if (!existeCliente(id)) {
+                System.out.println("Erro. Não encontrado.");
+            }
+
+            ClienteFisico clienteExistente = clienteFisicoRepositorio.buscarPorId(id);
+            clienteExistente.setNome(cliente.getNome());
+            clienteExistente.setCpf(cliente.getCpf());
+            clienteExistente.setEndereco(cliente.getEndereco());
+
+            return clienteFisicoRepositorio.salvar(clienteExistente);
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 

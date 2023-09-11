@@ -29,7 +29,7 @@ public class TerminalCarro {
         CarroRepositorio carroRepositorioMemoria = new CarroRepositorioMemoria();
         CarroServico carroServico = new CarroServico(carroRepositorioMemoria);
 
-        // Cadastrando carros
+        // CADASTRANDO CARROS
         Carro carro1 = new Carro(1, "honda civic", "honda", "prata", "419s8s-1s1", Tamanho.MEDIO);
         Carro carro2 = new Carro(2, "honda civic 2", "honda 2", "prata 2", "234242419s8s-1s1", Tamanho.PEQUENO);
         Carro carro3 = new Carro(3, "honda civic 3", "honda 3", "prata 3", "23dadada", Tamanho.SUV);
@@ -43,7 +43,7 @@ public class TerminalCarro {
         System.out.println(String.format(CADASTRO_MESSAGEM, carro3.getId()));
         carroServico.cadastrar(carro3);
 
-        // Buscar carro de id 1 e id 2
+        // BUSCAR CARRO DE ID 1 E ID 2
         try {
             System.out.println(String.format(BUSCA_MESSAGEM, 1));
             Carro carroBuscado1 = carroServico.buscarPorId(1);
@@ -60,7 +60,7 @@ public class TerminalCarro {
             throw new RuntimeException(e);
         }
 
-        // Remover carro por id e depois buscar para verificar se foi removido mesmo
+        // REMOVER CARRO POR ID E DEPOIS BUSCAR PARA VERIFICAR SE FOI REMOVIDO
         System.out.println(String.format(REMOCAO_MESSAGEM, 2));
         carroServico.removerCarroPorId(2);
 
@@ -73,20 +73,20 @@ public class TerminalCarro {
             throw new RuntimeException(e);
         } */
 
-        // Buscar Carros Por Parte do Nome
+        // BUSCAR CARROS POR PARTE NOME
         System.out.println(BUSCA_POR_NOME_MESSAGEM);
         List<Carro> carrosEncontrados = carroServico.buscarPorParteNome("civic");
         for (Carro carros : carrosEncontrados) {
             System.out.println(carros.getNome());
         }
 
-        // Atualizar Carro
+        // ATUALIZAR CARRO
         Carro carro1Atualizado = new Carro(1, "honda civic atualizado", "honda atualizado",
                 "prata atualizado", "23dadassda", Tamanho.MEDIO);
         System.out.println(String.format(ATUALIZACAO_MESSAGEM, 1));
         carroServico.atualizar(1, carro1Atualizado);
 
-        // Listar todos carros
+        // LISTAR TODOS CARROS
         System.out.println(LISTAGEM_MESSAGEM);
         List<Carro> todosCarros = carroServico.listarTodos();
         for (Carro carros : todosCarros) {
