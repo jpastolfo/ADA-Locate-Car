@@ -5,19 +5,22 @@ import modelo.Carro;
 import modelo.ClienteFisico;
 import persistencia.ClienteFisicoRepositorio;
 
+import java.util.Scanner;
+
 public class ClienteFisicoServico {
 
-    private final ClienteFisicoRepositorio clienteFisicoRepositorioRepositorio;
+    private final ClienteFisicoRepositorio clienteFisicoRepositorio;
 
-    public ClienteFisicoServico(ClienteFisicoRepositorio clienteFisicoRepositorioRepositorio) {
-        this.clienteFisicoRepositorioRepositorio = clienteFisicoRepositorioRepositorio;
+    public ClienteFisicoServico(ClienteFisicoRepositorio clienteFisicoRepositorio) {
+        this.clienteFisicoRepositorio = clienteFisicoRepositorio;
     }
 
-    public ClienteFisico cadastrar(ClienteFisico cliente){
+    public ClienteFisico cadastrar(ClienteFisico cliente) {
         try {
+
             if (!existeCliente(cliente.getId())) {
                 System.out.println("Cliente Físico cadastrado!");
-                return clienteFisicoRepositorioRepositorio.salvar(cliente);
+                return clienteFisicoRepositorio.salvar(cliente);
             } else {
                 System.out.println("Cliente Físico já existe");
             }
@@ -31,7 +34,7 @@ public class ClienteFisicoServico {
         if (id == null) {
             throw new Exception("Cliente Físico não encontrado.");
         } else {
-            return clienteFisicoRepositorioRepositorio.buscarPorId(id);
+            return clienteFisicoRepositorio.buscarPorId(id);
         }
     }
 

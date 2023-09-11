@@ -10,6 +10,8 @@ public class ClienteFisico extends Cliente {
         this.cpf = cpf;
     }
 
+    public ClienteFisico() {}
+
     public String getCpf() {
         return cpf;
     }

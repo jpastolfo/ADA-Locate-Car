@@ -1,9 +1,5 @@
 package menu;
 
-import servico.CarroServico;
-import servico.ClienteFisicoServico;
-import servico.ClienteJuridicoServico;
-
 import java.util.Scanner;
 
 public class TerminalUI {
@@ -18,10 +14,10 @@ public class TerminalUI {
 
             switch (escolha) {
                 case 1:
-                    TerminalControlador.controlarClienteMenu(scanner);
+                    TerminalControlador.controlarClienteMenu();
                     break;
                 case 2:
-                    TerminalControlador.controlarCarroMenu(scanner);
+                    TerminalControlador.controlarCarroMenu();
                     break;
                 case 0:
                     System.out.println("Saindo do programa...");
