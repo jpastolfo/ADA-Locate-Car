@@ -9,9 +9,9 @@ import java.util.List;
 
 public class TerminalCliente {
 
-    private static final String CADASTRO_CLIENTE_FISICO_MESSAGEM = "\n********************** \nCadastrando Cliente Físico %d...";
-    private static final String BUSCA_CLIENTE_FISICO_MESSAGEM = "\n********************** \nBuscando Cliente Físico de id %d";
-    private static final String ATUALIZACAO_CLIENTE_FISICO_MESSAGEM = "\n********************** \nAtualizando Cliente Físico de id %d";
+    private static final String CADASTRO_CLIENTE_FISICO_MESSAGEM = "\n********************** \nCadastrando Cliente Físico ";
+    private static final String BUSCA_CLIENTE_FISICO_MESSAGEM = "\n********************** \nBuscando Cliente Físico";
+    private static final String ATUALIZACAO_CLIENTE_FISICO_MESSAGEM = "\n********************** \nAtualizando Cliente Físico";
     private static final String LISTAGEM_CLIENTE_FISICO_MESSAGEM = "\n********************** \nListando todos os Clientes Físicos";
 
     private static final String CADASTRO_CLIENTE_JURIDICO_MESSAGEM = "\n********************** \nCadastrando Cliente Jurídico %d...";
@@ -37,31 +37,31 @@ public class TerminalCliente {
 
 
 
-        System.out.println(String.format(CADASTRO_CLIENTE_FISICO_MESSAGEM, clienteFisico1.getId()));
+        System.out.println(CADASTRO_CLIENTE_FISICO_MESSAGEM + clienteFisico1.getId());
         clienteFisicoServico.cadastrar(clienteFisico1);
 
-        System.out.println(String.format(CADASTRO_CLIENTE_FISICO_MESSAGEM, clienteFisico2.getId()));
-        clienteFisicoServico.cadastrar(clienteFisico2);
-
-        System.out.println(String.format(CADASTRO_CLIENTE_FISICO_MESSAGEM, clienteFisico3.getId()));
-        clienteFisicoServico.cadastrar(clienteFisico3);
+//        System.out.println(String.format(CADASTRO_CLIENTE_FISICO_MESSAGEM, clienteFisico2.getId()));
+//        clienteFisicoServico.cadastrar(clienteFisico2);
+//
+//        System.out.println(String.format(CADASTRO_CLIENTE_FISICO_MESSAGEM, clienteFisico3.getId()));
+//        clienteFisicoServico.cadastrar(clienteFisico3);
 
         // BUSCAR CLIENTE FÍSICO POR ID
         try {
-            System.out.println(String.format(BUSCA_CLIENTE_FISICO_MESSAGEM, 1));
-            ClienteFisico clienteFisicoBuscado1 = clienteFisicoServico.buscarPorId("21262378123");
-            System.out.println("ClienteFisico encontrado! \n id: " + clienteFisicoBuscado1.getId());
+            System.out.println(String.format(BUSCA_CLIENTE_FISICO_MESSAGEM , 1));
+            ClienteFisico clienteFisicoBuscado1 = clienteFisicoServico.buscarPorId(clienteFisico1.getId());
+            System.out.println("Cliente Fisico encontrado! \n Id: " + clienteFisicoBuscado1.getId());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
-        try {
-            System.out.println(String.format(BUSCA_CLIENTE_FISICO_MESSAGEM, 2));
-            ClienteFisico clienteFisicoBuscado2 = clienteFisicoServico.buscarPorId("4394835445");
-            System.out.println("Carro encontrado! \n id: " + clienteFisicoBuscado2.getId());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            System.out.println(String.format(BUSCA_CLIENTE_FISICO_MESSAGEM, 2));
+//            ClienteFisico clienteFisicoBuscado2 = clienteFisicoServico.buscarPorId("4394835445");
+//            System.out.println("Carro encontrado! \n id: " + clienteFisicoBuscado2.getId());
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
 
         // ATUALIZAR CLIENTE FÍSICO
 //        ClienteFisico clienteFisico1Atualizado = new ClienteFisico(2,"Fernando Souza ATUALIZADO",
