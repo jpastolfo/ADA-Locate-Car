@@ -55,6 +55,7 @@ public class CarroServico {
         carroExistente.setCor(carro.getCor());
         carroExistente.setPlaca(carro.getId());
         carroExistente.setTamanho(carro.getTamanho());
+        carroExistente.setAlugado(carro.isAlugado());
 
         return carroRepositorio.salvar(carroExistente);
 

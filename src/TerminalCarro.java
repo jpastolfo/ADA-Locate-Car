@@ -30,9 +30,12 @@ public class TerminalCarro {
         CarroServico carroServico = new CarroServico(carroRepositorioMemoria);
 
         // CADASTRANDO CARROS
-        Carro carro1 = new Carro("honda civic", "honda", "prata", "419s8s-1s1", Tamanho.MEDIO);
-        Carro carro2 = new Carro("honda civic 2", "honda 2", "prata 2", "234242419s8s-1s1", Tamanho.PEQUENO);
-        Carro carro3 = new Carro("honda civic 3", "honda 3", "prata 3", "23dadada", Tamanho.SUV);
+        Carro carro1 = new Carro("honda civic", "honda", "prata", "419s8s-1s1", Tamanho.MEDIO, false);
+        Carro carro2 = new Carro("toyota corolla", "toyota", "preto", "123abc-456", Tamanho.MEDIO, true);
+        Carro carro3 = new Carro("volkswagen golf", "volkswagen", "azul", "789xyz-012", Tamanho.PEQUENO, false);
+        Carro carro4 = new Carro("ford fiesta", "ford", "vermelho", "456def-789", Tamanho.MEDIO, true);
+        Carro carro5 = new Carro("chevrolet cruze", "chevrolet", "branco", "abc123-789", Tamanho.SUV, false);
+
 
         System.out.println(String.format(CADASTRO_MESSAGEM, carro1.getId()));
         carroServico.cadastrar(carro1);
@@ -54,7 +57,7 @@ public class TerminalCarro {
 
         try {
             System.out.println(String.format(BUSCA_MESSAGEM, 2));
-            Carro carroBuscado2 = carroServico.buscarPorPlaca("234242419s8s-1s1");
+            Carro carroBuscado2 = carroServico.buscarPorPlaca("123abc-456");
             System.out.println("Carro encontrado! \n id: " + carroBuscado2.getId());
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -82,7 +85,7 @@ public class TerminalCarro {
 
         // ATUALIZAR CARRO
         Carro carro1Atualizado = new Carro("honda civic atualizado", "honda atualizado",
-                "prata atualizado", "419s8s-1s1", Tamanho.MEDIO);
+                "prata atualizado", "419s8s-1s1", Tamanho.MEDIO, false);
         System.out.println(String.format(ATUALIZACAO_MESSAGEM, carro1Atualizado.getId()));
         carroServico.atualizar(carro1Atualizado.getId(), carro1Atualizado);
 

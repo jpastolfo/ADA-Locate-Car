@@ -8,12 +8,15 @@ public class Carro implements Entidade<Integer> {
     private String placa;
     private Tamanho tamanho;
 
-    public Carro(String modelo, String marca, String cor, String placa, Tamanho tamanho) {
+    private boolean alugado;
+
+    public Carro(String modelo, String marca, String cor, String placa, Tamanho tamanho, boolean alugado) {
         this.modelo = modelo;
         this.marca = marca;
         this.cor = cor;
         this.placa = placa;
         this.tamanho = tamanho;
+        this.alugado = alugado;
     }
 
     @Override
@@ -58,4 +61,11 @@ public class Carro implements Entidade<Integer> {
         this.tamanho = tamanho;
     }
 
+    public boolean isAlugado() {
+        return alugado;
+    }
+
+    public void setAlugado(boolean alugado) {
+        this.alugado = alugado;
+    }
 }
