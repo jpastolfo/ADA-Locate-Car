@@ -14,12 +14,12 @@ import java.util.List;
 
 public class TerminalCarro {
 
-    private static final String CADASTRO_MESSAGEM = "\n********************** \nCadastrando carro de id %d";
-    private static final String BUSCA_MESSAGEM = "\n********************** \nBuscando carro de id %d";
-    private static final String REMOCAO_MESSAGEM = "\n********************** \nRemovendo carro de id %d";
+    private static final String CADASTRO_MESSAGEM = "\n********************** \nCadastrando carro de placa %s";
+    private static final String BUSCA_MESSAGEM = "\n********************** \nBuscando carro de placa %s";
+    private static final String REMOCAO_MESSAGEM = "\n********************** \nRemovendo carro de placa %s";
     private static final String LISTAGEM_MESSAGEM = "\n********************** \nListando todos os carros";
-    private static final String ATUALIZACAO_MESSAGEM = "\n********************** \nAtualizando carro de id %d";
-    private static final String BUSCA_POR_NOME_MESSAGEM = "\n********************** \nBuscando carro por parte de nome";
+    private static final String ATUALIZACAO_MESSAGEM = "\n********************** \nAtualizando carro de placa %s";
+    private static final String BUSCA_POR_NOME_MESSAGEM = "\n********************** \nBuscando carro por parte de modelo/nome";
 
 
     public static void main(String[] args) {
@@ -30,9 +30,9 @@ public class TerminalCarro {
         CarroServico carroServico = new CarroServico(carroRepositorioMemoria);
 
         // CADASTRANDO CARROS
-        Carro carro1 = new Carro("FJH358", "honda civic", "honda", "prata", "419s8s-1s1", Tamanho.MEDIO);
-        Carro carro2 = new Carro("NTK321", "honda civic 2", "honda 2", "prata 2", "234242419s8s-1s1", Tamanho.PEQUENO);
-        Carro carro3 = new Carro("RJM943", "honda civic 3", "honda 3", "prata 3", "23dadada", Tamanho.SUV);
+        Carro carro1 = new Carro("honda civic", "honda", "prata", "419s8s-1s1", Tamanho.MEDIO);
+        Carro carro2 = new Carro("honda civic 2", "honda 2", "prata 2", "234242419s8s-1s1", Tamanho.PEQUENO);
+        Carro carro3 = new Carro("honda civic 3", "honda 3", "prata 3", "23dadada", Tamanho.SUV);
 
         System.out.println(String.format(CADASTRO_MESSAGEM, carro1.getId()));
         carroServico.cadastrar(carro1);
@@ -46,7 +46,7 @@ public class TerminalCarro {
         // BUSCAR CARRO DE ID 1 E ID 2
         try {
             System.out.println(String.format(BUSCA_MESSAGEM, 1));
-            Carro carroBuscado1 = carroServico.buscarPorId("FJH358");
+            Carro carroBuscado1 = carroServico.buscarPorPlaca("419s8s-1s1");
             System.out.println("Carro encontrado! \n id: " + carroBuscado1.getId());
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -54,7 +54,7 @@ public class TerminalCarro {
 
         try {
             System.out.println(String.format(BUSCA_MESSAGEM, 2));
-            Carro carroBuscado2 = carroServico.buscarPorId("NTK321");
+            Carro carroBuscado2 = carroServico.buscarPorPlaca("234242419s8s-1s1");
             System.out.println("Carro encontrado! \n id: " + carroBuscado2.getId());
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -81,10 +81,10 @@ public class TerminalCarro {
         }
 
         // ATUALIZAR CARRO
-//        Carro carro1Atualizado = new Carro(1, "honda civic atualizado", "honda atualizado",
-//                "prata atualizado", "23dadassda", Tamanho.MEDIO);
-//        System.out.println(String.format(ATUALIZACAO_MESSAGEM, 1));
-//        carroServico.atualizar(1, carro1Atualizado);
+        Carro carro1Atualizado = new Carro("honda civic atualizado", "honda atualizado",
+                "prata atualizado", "419s8s-1s1", Tamanho.MEDIO);
+        System.out.println(String.format(ATUALIZACAO_MESSAGEM, carro1Atualizado.getId()));
+        carroServico.atualizar(carro1Atualizado.getId(), carro1Atualizado);
 
         // LISTAR TODOS CARROS
         System.out.println(LISTAGEM_MESSAGEM);
