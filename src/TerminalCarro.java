@@ -14,22 +14,40 @@ import java.util.List;
 
 public class TerminalCarro {
 
-    private static final String CADASTRO_MESSAGEM = "\n********************** \nCadastrando carro de placa %s";
-    private static final String BUSCA_MESSAGEM = "\n********************** \nBuscando carro de placa %s";
-    private static final String REMOCAO_MESSAGEM = "\n********************** \nRemovendo carro";
-    private static final String LISTAGEM_MESSAGEM = "\n********************** \nListando todos os carros";
-    private static final String ATUALIZACAO_MESSAGEM = "\n********************** \nAtualizando carro";
-    private static final String BUSCA_POR_NOME_MESSAGEM = "\n********************** \nBuscando carro por parte de modelo/nome";
+    private static final String CADASTRO_MESSAGEM = "\n*********************************************** \nCadastrando carro de placa ➞ %s";
+    private static final String BUSCA_MESSAGEM = "\n*********************************************** \nBuscando carro por placa";
+    private static final String REMOCAO_MESSAGEM = "\n*********************************************** \nRemovendo carro";
+    private static final String LISTAGEM_MESSAGEM = "\n*********************************************** \nListando todos os carros";
+    private static final String ATUALIZACAO_MESSAGEM = "\n*********************************************** \nAtualizando carro";
+    private static final String BUSCA_POR_NOME_MESSAGEM = "\n*********************************************** \nBuscando carro por parte de modelo/nome";
 
 
     public static void main(String[] args) {
-
 
         // CARRO
         CarroRepositorio carroRepositorioMemoria = new CarroRepositorioMemoria();
         CarroServico carroServico = new CarroServico(carroRepositorioMemoria);
 
         // CADASTRANDO CARROS
+        cadastraCarro(carroServico);
+
+        // BUSCAR CARRO POR PLACA ID 1 E ID 2
+        buscaPorPlaca(carroServico);
+
+        // REMOVER CARRO POR ID E DEPOIS BUSCAR PARA VERIFICAR SE FOI REMOVIDO
+        removeCarro(carroServico);
+
+        // BUSCAR CARROS POR PARTE NOME
+       buscaPorNome(carroServico);
+
+        // ATUALIZAR CARRO
+        atualizaCarro(carroServico);
+
+        // LISTAR TODOS CARROS
+        listaCarros(carroServico);
+    }
+
+    static void cadastraCarro(CarroServico carroServico) {
         Carro carro1 = new Carro("honda civic", "honda", "prata", "419s8s-1s1", Tamanho.MEDIO, false);
         Carro carro2 = new Carro("toyota corolla", "toyota", "preto", "123abc-456", Tamanho.MEDIO, false);
         Carro carro3 = new Carro("volkswagen golf", "volkswagen", "azul", "789xyz-012", Tamanho.PEQUENO, false);
@@ -52,9 +70,11 @@ public class TerminalCarro {
         System.out.println(String.format(CADASTRO_MESSAGEM, carro5.getId()));
         carroServico.cadastrar(carro5);
 
-        // BUSCAR CARRO DE ID 1 E ID 2
+    }
+    static void buscaPorPlaca (CarroServico carroServico){
+
         try {
-            System.out.println(String.format(BUSCA_MESSAGEM, 1));
+            System.out.println(String.format(BUSCA_MESSAGEM));
             Carro carroBuscado1 = carroServico.buscarPorPlaca("419s8s-1s1");
             System.out.println("Carro encontrado! \n id: " + carroBuscado1.getId());
         } catch (Exception e) {
@@ -62,34 +82,24 @@ public class TerminalCarro {
         }
 
         try {
-            System.out.println(String.format(BUSCA_MESSAGEM, 2));
+            System.out.println(String.format(BUSCA_MESSAGEM));
             Carro carroBuscado2 = carroServico.buscarPorPlaca("123abc-456");
             System.out.println("Carro encontrado! \n id: " + carroBuscado2.getId());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-        // REMOVER CARRO POR ID E DEPOIS BUSCAR PARA VERIFICAR SE FOI REMOVIDO
+    }
+    static void removeCarro (CarroServico carroServico) {
         System.out.println(String.format(REMOCAO_MESSAGEM));
-        carroServico.removerCarroPorPlaca("123abc-456");
-
-        /* Não é necessário buscar novamente o carro removido
-        try {
-            System.out.println("********************** \nBuscando carro de id 2");
-            Carro carroBuscado2 = carroServico.buscarPorId(2);
-            System.out.println("Carro encontrado! \n id: " + carroBuscado2.getId());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        } */
-
-        // BUSCAR CARROS POR PARTE NOME
+        carroServico.removerCarroPorPlaca("123abc-456");}
+    static void buscaPorNome (CarroServico carroServico){
         System.out.println(BUSCA_POR_NOME_MESSAGEM);
         List<Carro> carrosEncontrados = carroServico.buscarPorParteNome("civic");
         for (Carro carros : carrosEncontrados) {
             System.out.println(carros.getNome());
         }
-
-        // ATUALIZAR CARRO
+    }
+    static void atualizaCarro (CarroServico carroServico){
         Carro carro1Atualizado = new Carro("honda civic atualizado", "honda atualizado",
                 "prata atualizado", "419s8s-1s1", Tamanho.MEDIO, false);
         System.out.println(String.format(ATUALIZACAO_MESSAGEM, carro1Atualizado.getId()));
@@ -102,14 +112,13 @@ public class TerminalCarro {
         }catch (Exception e){
             throw new RuntimeException("Não foi possível atualizar");
         }
-
-
-
-        // LISTAR TODOS CARROS
+    }
+    static void listaCarros (CarroServico carroServico){
         System.out.println(LISTAGEM_MESSAGEM);
         List<Carro> todosCarros = carroServico.listarTodos();
         for (Carro carros : todosCarros) {
             System.out.println(carros.getNome());
         }
     }
-}
+
+     }
