@@ -138,6 +138,7 @@ public class TerminalCliente {
             throw new RuntimeException(e);
         }
 
+
         // ATUALIZAR CLIENTE JURÍDICO
 //        ClienteJuridico clienteJuridico1Atualizado = new ClienteJuridico(2,"Dell ATUALIZADA Ltda",
 //                "Rua Fernando Guimaraes, 484, Marilia, SP", null, "12.232.343/3434-35");
