@@ -31,9 +31,9 @@ public class TerminalCarro {
 
         // CADASTRANDO CARROS
         Carro carro1 = new Carro("honda civic", "honda", "prata", "419s8s-1s1", Tamanho.MEDIO, false);
-        Carro carro2 = new Carro("toyota corolla", "toyota", "preto", "123abc-456", Tamanho.MEDIO, true);
+        Carro carro2 = new Carro("toyota corolla", "toyota", "preto", "123abc-456", Tamanho.MEDIO, false);
         Carro carro3 = new Carro("volkswagen golf", "volkswagen", "azul", "789xyz-012", Tamanho.PEQUENO, false);
-        Carro carro4 = new Carro("ford fiesta", "ford", "vermelho", "456def-789", Tamanho.MEDIO, true);
+        Carro carro4 = new Carro("ford fiesta", "ford", "vermelho", "456def-789", Tamanho.MEDIO, false);
         Carro carro5 = new Carro("chevrolet cruze", "chevrolet", "branco", "abc123-789", Tamanho.SUV, false);
 
 
