@@ -19,19 +19,20 @@ public class TerminalCliente {
     private static final String ATUALIZACAO_CLIENTE_JURIDICO_MESSAGEM = "\n***************************************************** \nAtualizando Cliente Jurídico";
     private static final String LISTAGEM_CLIENTE_JURIDICO_MESSAGEM = "\n***************************************************** \nListando todos os Clientes Jurídicos";
 
+
     public static void main(String[] args) {
 
         // ------------ CLIENTE FÍSICO ------------
         ClienteFisicoRepositorioMemoria clienteFisicoRepositorioMemoria = new ClienteFisicoRepositorioMemoria();
         ClienteFisicoServico clienteFisicoServico = new ClienteFisicoServico(clienteFisicoRepositorioMemoria);
 
-        ClienteFisico clienteFisico1 = new ClienteFisico("21262378123", "Claudio Silva",
+        ClienteFisico clienteFisico1 = new ClienteFisico("Claudio Silva",
                 "Rua das Magnolias, 313, Santo André, São Paulo", null, "045.786.543-65");
 
-        ClienteFisico clienteFisico2 = new ClienteFisico("4394835445","Fernando Souza",
+        ClienteFisico clienteFisico2 = new ClienteFisico("Fernando Souza",
                 "Rua das Camelias, 654, São Bernardo, São Paulo", null, "954.654.655-56");
 
-        ClienteFisico clienteFisico3 = new ClienteFisico("034928432","Jorge Miguel",
+        ClienteFisico clienteFisico3 = new ClienteFisico("Jorge Miguel",
                 "Rua das Camelias, 654, São Bernardo, São Paulo", null, "324.654.899-56");
 
 
@@ -50,7 +51,7 @@ public class TerminalCliente {
         try {
             System.out.println(String.format(BUSCA_CLIENTE_FISICO_MESSAGEM , 1));
             ClienteFisico clienteFisicoBuscado1 = clienteFisicoServico.buscarPorId(clienteFisico1.getId());
-            System.out.println("Cliente Fisico encontrado! \n Id: " + clienteFisicoBuscado1.getId() + "\n" + clienteFisicoBuscado1.getNome());
+            System.out.println("Cliente Fisico encontrado! \n Id: " + clienteFisicoBuscado1.getId() + "\n" + clienteFisicoBuscado1.getNome() + "\n" + clienteFisicoBuscado1.getEndereco());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -58,7 +59,7 @@ public class TerminalCliente {
         try {
             System.out.println(String.format(BUSCA_CLIENTE_FISICO_MESSAGEM , 1));
             ClienteFisico clienteFisicoBuscado2 = clienteFisicoServico.buscarPorId(clienteFisico2.getId());
-            System.out.println("Cliente Fisico encontrado! \n Id: " + clienteFisicoBuscado2.getId() + "\n" + clienteFisicoBuscado2.getNome());
+            System.out.println("Cliente Fisico encontrado! \n Id: " + clienteFisicoBuscado2.getId() + "\n" + clienteFisicoBuscado2.getNome() + "\n" + clienteFisicoBuscado2.getEndereco());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -66,7 +67,7 @@ public class TerminalCliente {
         try {
             System.out.println(String.format(BUSCA_CLIENTE_FISICO_MESSAGEM , 1));
             ClienteFisico clienteFisicoBuscado3 = clienteFisicoServico.buscarPorId(clienteFisico3.getId());
-            System.out.println("Cliente Fisico encontrado! \n Id: " + clienteFisicoBuscado3.getId() + "\n" + clienteFisicoBuscado3.getNome());
+            System.out.println("Cliente Fisico encontrado! \n Id: " + clienteFisicoBuscado3.getId() + "\n" + clienteFisicoBuscado3.getNome() + "\n" + clienteFisicoBuscado3.getEndereco());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -100,13 +101,13 @@ public class TerminalCliente {
         ClienteJuridicoRepositorioMemoria clienteJuridicoRepositorioMemoria = new ClienteJuridicoRepositorioMemoria();
         ClienteJuridicoServico clienteJuridicoServico = new ClienteJuridicoServico(clienteJuridicoRepositorioMemoria);
 
-        ClienteJuridico clienteJuridico1 = new ClienteJuridico("12.232.343/3434-34", "Springer Carrier Ltda",
+        ClienteJuridico clienteJuridico1 = new ClienteJuridico( "Springer Carrier Ltda",
                 "Rua Getulio Vargas, 675, São Caetano, São Paulo", null, "12.232.343/3434-34");
 
-        ClienteJuridico clienteJuridico2 = new ClienteJuridico("09.232.343/3434-35","Dell Ltda",
+        ClienteJuridico clienteJuridico2 = new ClienteJuridico("Dell Ltda",
                 "Rua Fernando Guimaraes, 484, Marilia, SP", null, "09.232.343/3434-35");
 
-        ClienteJuridico clienteJuridico3 = new ClienteJuridico("32.232.343/3434-40","Skycyan Ltda",
+        ClienteJuridico clienteJuridico3 = new ClienteJuridico("Skycyan Ltda",
                 "Rua Fernando Guimaraes, 484, Marilia, SP", null, "32.232.343/3434-40");
 
         // CADASTRAR CLIENTES JURÍDICOS
@@ -126,7 +127,7 @@ public class TerminalCliente {
         try {
             System.out.println(String.format(BUSCA_CLIENTE_JURIDICO_MESSAGE, 2));
             ClienteJuridico clienteJuridicoBuscado1 = clienteJuridicoServico.buscarPorId(clienteJuridico1.getId());
-            System.out.println("Cliente Jurídico encontrado! \n id: " + clienteJuridicoBuscado1.getId() + "\n" + clienteJuridicoBuscado1.getNome());
+            System.out.println("Cliente Jurídico encontrado! \n id: " + clienteJuridicoBuscado1.getId() + "\n" + clienteJuridicoBuscado1.getNome() + "\n" + clienteJuridicoBuscado1.getEndereco());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -134,7 +135,7 @@ public class TerminalCliente {
         try {
             System.out.println(String.format(BUSCA_CLIENTE_JURIDICO_MESSAGE, 2));
             ClienteJuridico clienteJuridicoBuscado2 = clienteJuridicoServico.buscarPorId(clienteJuridico2.getId());
-            System.out.println("Cliente Jurídico encontrado! \n id: " + clienteJuridicoBuscado2.getId() + "\n" + clienteJuridicoBuscado2.getNome());
+            System.out.println("Cliente Jurídico encontrado! \n id: " + clienteJuridicoBuscado2.getId() + "\n" + clienteJuridicoBuscado2.getNome() + "\n" + clienteJuridicoBuscado2.getEndereco());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -142,10 +143,11 @@ public class TerminalCliente {
         try {
             System.out.println(String.format(BUSCA_CLIENTE_JURIDICO_MESSAGE, 2));
             ClienteJuridico clienteJuridicoBuscado3 = clienteJuridicoServico.buscarPorId(clienteJuridico3.getId());
-            System.out.println("Cliente Jurídico encontrado! \n id: " + clienteJuridicoBuscado3.getId() + "\n" + clienteJuridicoBuscado3.getNome());
+            System.out.println("Cliente Jurídico encontrado! \n id: " + clienteJuridicoBuscado3.getId() + "\n" + clienteJuridicoBuscado3.getNome() + "\n" + clienteJuridicoBuscado3.getEndereco());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
 
         // ATUALIZAR CLIENTE JURÍDICO
        try {
@@ -158,7 +160,7 @@ public class TerminalCliente {
             throw new RuntimeException("Não foi possível atualizar");
         }
 
-        // LISTAR TODOS
+//         LISTAR TODOS
         System.out.println(LISTAGEM_CLIENTE_JURIDICO_MESSAGEM);
         List<ClienteJuridico> todosClientesJuridicos = clienteJuridicoServico.listarTodos();
         for (ClienteJuridico clientesJuridicos : todosClientesJuridicos) {

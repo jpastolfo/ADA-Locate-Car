@@ -10,8 +10,7 @@ public abstract class Cliente implements Entidade<Integer>{
     private String endereco;
     private List<Carro> carrosAlugados;
 
-    public Cliente(String id, String nome, String endereco, List<Carro> carrosAlugados) {
-        this.id = id;
+    public Cliente(String nome, String endereco, List<Carro> carrosAlugados) {
         this.nome = nome;
         this.endereco = endereco;
         this.carrosAlugados = carrosAlugados;
