@@ -19,7 +19,6 @@ public class TerminalCliente {
     private static final String ATUALIZACAO_CLIENTE_JURIDICO_MESSAGEM = "\n***************************************************** \nAtualizando Cliente Jurídico";
     private static final String LISTAGEM_CLIENTE_JURIDICO_MESSAGEM = "\n***************************************************** \nListando todos os Clientes Jurídicos";
 
-
     public static void main(String[] args) {
 
         // ------------ CLIENTE FÍSICO ------------
@@ -101,13 +100,13 @@ public class TerminalCliente {
         ClienteJuridicoRepositorioMemoria clienteJuridicoRepositorioMemoria = new ClienteJuridicoRepositorioMemoria();
         ClienteJuridicoServico clienteJuridicoServico = new ClienteJuridicoServico(clienteJuridicoRepositorioMemoria);
 
-        ClienteJuridico clienteJuridico1 = new ClienteJuridico("03.056.290/0001-83", "Springer Carrier Ltda",
+        ClienteJuridico clienteJuridico1 = new ClienteJuridico("12.232.343/3434-34", "Springer Carrier Ltda",
                 "Rua Getulio Vargas, 675, São Caetano, São Paulo", null, "12.232.343/3434-34");
 
-        ClienteJuridico clienteJuridico2 = new ClienteJuridico("41.364.684/0001-98","Dell Ltda",
+        ClienteJuridico clienteJuridico2 = new ClienteJuridico("09.232.343/3434-35","Dell Ltda",
                 "Rua Fernando Guimaraes, 484, Marilia, SP", null, "09.232.343/3434-35");
 
-        ClienteJuridico clienteJuridico3 = new ClienteJuridico("55.589.419/0001-12","Skycyan Ltda",
+        ClienteJuridico clienteJuridico3 = new ClienteJuridico("32.232.343/3434-40","Skycyan Ltda",
                 "Rua Fernando Guimaraes, 484, Marilia, SP", null, "32.232.343/3434-40");
 
         // CADASTRAR CLIENTES JURÍDICOS
@@ -148,10 +147,9 @@ public class TerminalCliente {
             throw new RuntimeException(e);
         }
 
-
         // ATUALIZAR CLIENTE JURÍDICO
        try {
-            System.out.println(String.format(ATUALIZACAO_CLIENTE_FISICO_MESSAGEM, 3));
+            System.out.println(String.format(ATUALIZACAO_CLIENTE_JURIDICO_MESSAGEM, 3));
             clienteJuridico1.setNome("Spring Car");
             clienteJuridico1.setEndereco("Rua dos Namorados, 654, São salvador, Rio de Janeiro");
             ClienteJuridico clienteJuridico1Atualizado = clienteJuridicoServico.atualizar(clienteJuridico1.getId(), clienteJuridico1);
@@ -160,7 +158,7 @@ public class TerminalCliente {
             throw new RuntimeException("Não foi possível atualizar");
         }
 
-//         LISTAR TODOS
+        // LISTAR TODOS
         System.out.println(LISTAGEM_CLIENTE_JURIDICO_MESSAGEM);
         List<ClienteJuridico> todosClientesJuridicos = clienteJuridicoServico.listarTodos();
         for (ClienteJuridico clientesJuridicos : todosClientesJuridicos) {

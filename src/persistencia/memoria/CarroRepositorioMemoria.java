@@ -18,4 +18,14 @@ public class CarroRepositorioMemoria extends RepositorioMemoriaAbstrato<Carro, I
         }
         return carros;
     }
+
+    @Override
+    public Carro buscarPorPlaca(String placa) {
+        for (Carro carro : listarTodos()) {
+            if (carro.getId().equals(placa)) {
+                return carro;
+            }
+        }
+        return null;
+    }
 }

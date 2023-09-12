@@ -2,28 +2,22 @@ package modelo;
 
 public class Carro implements Entidade<Integer> {
 
-    private String id;
     private String modelo;
     private String marca;
     private String cor;
     private String placa;
     private Tamanho tamanho;
 
-    public Carro(String id, String modelo, String marca, String cor, String placa, Tamanho tamanho) {
-        this.id = id;
+    private boolean alugado;
+
+    public Carro(String modelo, String marca, String cor, String placa, Tamanho tamanho, boolean alugado) {
         this.modelo = modelo;
         this.marca = marca;
         this.cor = cor;
         this.placa = placa;
         this.tamanho = tamanho;
+        this.alugado = alugado;
     }
-
-    @Override
-    public String getId() {
-        return placa;
-    }
-
-    public void setId(String id) {this.id = id; }
 
     @Override
     public String getNome() {
@@ -50,7 +44,8 @@ public class Carro implements Entidade<Integer> {
         this.cor = cor;
     }
 
-    public String getPlaca() {
+    @Override
+    public String getId() {
         return placa;
     }
 
@@ -66,4 +61,11 @@ public class Carro implements Entidade<Integer> {
         this.tamanho = tamanho;
     }
 
+    public boolean isAlugado() {
+        return alugado;
+    }
+
+    public void setAlugado(boolean alugado) {
+        this.alugado = alugado;
+    }
 }

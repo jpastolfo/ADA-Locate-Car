@@ -27,11 +27,11 @@ public class CarroServico {
         return null;
     }
 
-    public Carro buscarPorId(String id) throws Exception {
-        if (id == null) {
+    public Carro buscarPorPlaca(String placa) throws Exception {
+        if (placa == null) {
             throw new Exception("Carro não encontrado.");
         } else {
-            return carroRepositorio.buscarPorId(id);
+            return carroRepositorio.buscarPorId(placa);
         }
     }
 
@@ -43,18 +43,19 @@ public class CarroServico {
         return carroRepositorio.buscarPorParteNome(nomeParcial);
     }
 
-    public Carro atualizar(String id, Carro carro) {
+    public Carro atualizar(String placa, Carro carro) {
         try {
-            if (!existeCarro(id)) {
+            if (!existeCarro(placa)) {
                 System.out.println("Erro. Não encontrado.");
             }
 
-        Carro carroExistente = carroRepositorio.buscarPorId(id);
+        Carro carroExistente = carroRepositorio.buscarPorPlaca(placa);
         carroExistente.setModelo(carro.getNome());
         carroExistente.setMarca(carro.getMarca());
         carroExistente.setCor(carro.getCor());
-        carroExistente.setPlaca(carro.getPlaca());
+        carroExistente.setPlaca(carro.getId());
         carroExistente.setTamanho(carro.getTamanho());
+        carroExistente.setAlugado(carro.isAlugado());
 
         return carroRepositorio.salvar(carroExistente);
 
@@ -74,7 +75,7 @@ public class CarroServico {
     }
 
     private boolean existeCarro(String id) throws Exception {
-        Carro carroEncontrado = buscarPorId(id);
+        Carro carroEncontrado = buscarPorPlaca(id);
         return carroEncontrado != null;
     }
 
