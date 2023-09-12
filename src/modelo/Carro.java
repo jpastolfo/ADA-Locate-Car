@@ -49,7 +49,7 @@ public class Carro implements Entidade<Integer> {
         return placa;
     }
 
-    public void setPlaca(String placa) {
+    public void setPlaca( String placa) {
         this.placa = getId();
     }
 
