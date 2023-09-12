@@ -1,6 +1,5 @@
 package servico;
 
-import modelo.ClienteFisico;
 import modelo.ClienteJuridico;
 import persistencia.ClienteJuridicoRepositorio;
 
@@ -28,7 +27,7 @@ public class ClienteJuridicoServico {
         return null;
     }
 
-    public ClienteJuridico buscarPorId(Integer id) throws Exception {
+    public ClienteJuridico buscarPorId(String id) throws Exception {
         if (id == null) {
             throw new Exception("Cliente Jurídico não encontrado.");
         } else {
@@ -40,7 +39,7 @@ public class ClienteJuridicoServico {
         return clienteJuridicoRepositorio.listarTodos();
     }
 
-    public ClienteJuridico atualizar(Integer id, ClienteJuridico cliente) {
+    public ClienteJuridico atualizar(String id, ClienteJuridico cliente) {
         try {
             if (!existeCliente(id)) {
                 System.out.println("Erro. Não encontrado.");
@@ -58,7 +57,7 @@ public class ClienteJuridicoServico {
         }
     }
     
-    private boolean existeCliente(Integer id) throws Exception {
+    private boolean existeCliente(String id) throws Exception {
         ClienteJuridico clienteEncontrado = buscarPorId(id);
         return clienteEncontrado != null;
     }

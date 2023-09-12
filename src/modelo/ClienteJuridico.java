@@ -5,7 +5,7 @@ import java.util.List;
 public class ClienteJuridico extends Cliente {
     String cnpj;
 
-    public ClienteJuridico(Integer id, String nome, String endereco, List<Carro> carrosAlugados, String cnpj) {
+    public ClienteJuridico(String id, String nome, String endereco, List<Carro> carrosAlugados, String cnpj) {
         super(id, nome, endereco, carrosAlugados);
         this.cnpj = cnpj;
     }
@@ -23,5 +23,10 @@ public class ClienteJuridico extends Cliente {
         return "ClienteJuridico{" +
                 "cnpj='" + cnpj + '\'' +
                 '}';
+    }
+
+    @Override
+    public String getId() {
+        return cnpj;
     }
 }

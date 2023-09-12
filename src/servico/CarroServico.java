@@ -27,7 +27,7 @@ public class CarroServico {
         return null;
     }
 
-    public Carro buscarPorId(Integer id) throws Exception {
+    public Carro buscarPorId(String id) throws Exception {
         if (id == null) {
             throw new Exception("Carro não encontrado.");
         } else {
@@ -43,7 +43,7 @@ public class CarroServico {
         return carroRepositorio.buscarPorParteNome(nomeParcial);
     }
 
-    public Carro atualizar(Integer id, Carro carro) {
+    public Carro atualizar(String id, Carro carro) {
         try {
             if (!existeCarro(id)) {
                 System.out.println("Erro. Não encontrado.");
@@ -63,7 +63,7 @@ public class CarroServico {
         }
     }
 
-    public boolean removerCarroPorId(Integer id) {
+    public boolean removerCarroPorId(String id) {
         if (carroRepositorio.removerPorId(id)) {
             System.out.println("Carro removido!");
             return true;
@@ -73,7 +73,7 @@ public class CarroServico {
         }
     }
 
-    private boolean existeCarro(Integer id) throws Exception {
+    private boolean existeCarro(String id) throws Exception {
         Carro carroEncontrado = buscarPorId(id);
         return carroEncontrado != null;
     }
