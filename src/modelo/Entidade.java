@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 public interface Entidade<T> extends Serializable {
 
-    T getId();
+    String getId();
 
-    String getNome();
+    java.lang.String getNome();
 
 }

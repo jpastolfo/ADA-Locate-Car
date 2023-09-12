@@ -32,7 +32,7 @@ public class ClienteFisicoServico {
         return null;
     }
 
-    public ClienteFisico buscarPorId(Integer id) throws Exception {
+    public ClienteFisico buscarPorId(String id) throws Exception {
         if (id == null) {
             throw new Exception("Cliente Físico não encontrado.");
         } else {
@@ -44,7 +44,7 @@ public class ClienteFisicoServico {
         return clienteFisicoRepositorio.listarTodos();
     }
 
-    public ClienteFisico atualizar(Integer id, ClienteFisico cliente) {
+    public ClienteFisico atualizar(String id, ClienteFisico cliente) {
         try {
             if (!existeCliente(id)) {
                 System.out.println("Erro. Não encontrado.");
@@ -62,7 +62,7 @@ public class ClienteFisicoServico {
         }
     }
 
-    private boolean existeCliente(Integer id) throws Exception {
+    private boolean existeCliente(String id) throws Exception {
         ClienteFisico clienteEncontrado = buscarPorId(id);
         return clienteEncontrado != null;
     }
