@@ -9,12 +9,12 @@ import java.util.List;
 
 public class TerminalCliente {
 
-    private static final String CADASTRO_CLIENTE_FISICO_MESSAGEM = "\n********************** \nCadastrando Cliente Físico %d...";
+    private static final String CADASTRO_CLIENTE_FISICO_MESSAGEM = "\n********************** \nCadastrando Cliente Físico %d";
     private static final String BUSCA_CLIENTE_FISICO_MESSAGEM = "\n********************** \nBuscando Cliente Físico de id %d";
     private static final String ATUALIZACAO_CLIENTE_FISICO_MESSAGEM = "\n********************** \nAtualizando Cliente Físico de id %d";
     private static final String LISTAGEM_CLIENTE_FISICO_MESSAGEM = "\n********************** \nListando todos os Clientes Físicos";
 
-    private static final String CADASTRO_CLIENTE_JURIDICO_MESSAGEM = "\n********************** \nCadastrando Cliente Jurídico %d...";
+    private static final String CADASTRO_CLIENTE_JURIDICO_MESSAGEM = "\n********************** \nCadastrando Cliente Jurídico %d";
     private static final String BUSCA_CLIENTE_JURIDICO_MESSAGE = "\n********************** \nBuscando Cliente Jurídico de id %d";
     private static final String ATUALIZACAO_CLIENTE_JURIDICO_MESSAGEM = "\n********************** \nAtualizando Cliente Jurídico de id %d";
     private static final String LISTAGEM_CLIENTE_JURIDICO_MESSAGEM = "\n********************** \nListando todos os Clientes Jurídicos";
