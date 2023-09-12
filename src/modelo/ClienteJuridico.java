@@ -3,7 +3,7 @@ package modelo;
 import java.util.List;
 
 public class ClienteJuridico extends Cliente {
-    String cnpj;
+    private String cnpj;
 
     public ClienteJuridico(String id, String nome, String endereco, List<Carro> carrosAlugados, String cnpj) {
         super(id, nome, endereco, carrosAlugados);
