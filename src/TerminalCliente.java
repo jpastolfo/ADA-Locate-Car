@@ -151,7 +151,7 @@ public class TerminalCliente {
 
         // ATUALIZAR CLIENTE JURÍDICO
        try {
-            System.out.println(String.format(ATUALIZACAO_CLIENTE_FISICO_MESSAGEM, 3));
+            System.out.println(String.format(ATUALIZACAO_CLIENTE_JURIDICO_MESSAGEM, 3));
             clienteJuridico1.setNome("Spring Car");
             clienteJuridico1.setEndereco("Rua dos Namorados, 654, São salvador, Rio de Janeiro");
             ClienteJuridico clienteJuridico1Atualizado = clienteJuridicoServico.atualizar(clienteJuridico1.getId(), clienteJuridico1);

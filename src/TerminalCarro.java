@@ -18,7 +18,7 @@ public class TerminalCarro {
     private static final String BUSCA_MESSAGEM = "\n********************** \nBuscando carro de placa %s";
     private static final String REMOCAO_MESSAGEM = "\n********************** \nRemovendo carro de placa %s";
     private static final String LISTAGEM_MESSAGEM = "\n********************** \nListando todos os carros";
-    private static final String ATUALIZACAO_MESSAGEM = "\n********************** \nAtualizando carro de placa %s";
+    private static final String ATUALIZACAO_MESSAGEM = "\n********************** \nAtualizando carro";
     private static final String BUSCA_POR_NOME_MESSAGEM = "\n********************** \nBuscando carro por parte de modelo/nome";
 
 
@@ -84,10 +84,26 @@ public class TerminalCarro {
         }
 
         // ATUALIZAR CARRO
-        Carro carro1Atualizado = new Carro("honda civic atualizado", "honda atualizado",
-                "prata atualizado", "419s8s-1s1", Tamanho.MEDIO, false);
-        System.out.println(String.format(ATUALIZACAO_MESSAGEM, carro1Atualizado.getId()));
-        carroServico.atualizar(carro1Atualizado.getId(), carro1Atualizado);
+//        Carro carro1Atualizado = new Carro("honda civic atualizado", "honda atualizado",
+//                "prata atualizado", "419s8s-1s1", Tamanho.MEDIO, false);
+//        System.out.println(String.format(ATUALIZACAO_MESSAGEM, carro1Atualizado.getId()));
+//        carroServico.atualizar(carro1Atualizado.getId(), carro1Atualizado);
+
+        try {
+            System.out.println(String.format(ATUALIZACAO_MESSAGEM));
+            carro1.setModelo("Honda Civic Modelo Novo");
+            carro1.setMarca("Honda Atualizado");
+            carro1.setCor("Prata Atualizado");
+            carro1.setPlaca("OHS210");
+            carro1.setTamanho(Tamanho.MEDIO);
+            carro1.setAlugado(false);
+            Carro carro1Atualizado = carroServico.atualizar(carro1.getId(), carro1);
+            System.out.println("Carros atualizado! \n Id: " + carro1Atualizado.getId() + "\n" +  carro1Atualizado.getMarca() + "\n" +  carro1Atualizado.getNome() + "\n" +  carro1Atualizado.getCor() + "\n" + carro1Atualizado.getTamanho() );
+        }catch (Exception e){
+            throw new RuntimeException("Não foi possível atualizar");
+        }
+
+
 
         // LISTAR TODOS CARROS
         System.out.println(LISTAGEM_MESSAGEM);

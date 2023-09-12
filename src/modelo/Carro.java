@@ -50,7 +50,7 @@ public class Carro implements Entidade<Integer> {
     }
 
     public void setPlaca(String placa) {
-        this.placa = placa;
+        this.placa = getId();
     }
 
     public Tamanho getTamanho() {
