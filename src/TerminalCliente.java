@@ -1,5 +1,7 @@
+import modelo.Carro;
 import modelo.ClienteFisico;
 import modelo.ClienteJuridico;
+import modelo.Tamanho;
 import persistencia.memoria.ClienteFisicoRepositorioMemoria;
 import persistencia.memoria.ClienteJuridicoRepositorioMemoria;
 import servico.ClienteFisicoServico;
@@ -22,9 +24,54 @@ public class TerminalCliente {
 
     public static void main(String[] args) {
 
-        // ------------ CLIENTE FÍSICO ------------
+                                 // ------------ CLIENTE FÍSICO ------------
+
         ClienteFisicoRepositorioMemoria clienteFisicoRepositorioMemoria = new ClienteFisicoRepositorioMemoria();
         ClienteFisicoServico clienteFisicoServico = new ClienteFisicoServico(clienteFisicoRepositorioMemoria);
+
+//                                   * CADASTRAR CLIENTE FÍSICO *
+
+        cadastraClienteFisico(clienteFisicoServico);
+
+//                                    * BUSCAR CLIENTE FÍSICO *
+
+        buscaClienteFisicoPorId(clienteFisicoServico);
+
+//                                  * ATUALIZAR CLIENTE FÍSICO *
+
+        atualizaClienteFisico(clienteFisicoServico);
+
+//                                * LISTAR TODOS OS CLIENTES FÍSICOS *
+
+        listaTodosClientesFisicos(clienteFisicoServico);
+
+
+
+//                               ------------ CLIENTE JURÍDICO ------------
+
+
+        ClienteJuridicoRepositorioMemoria clienteJuridicoRepositorioMemoria = new ClienteJuridicoRepositorioMemoria();
+        ClienteJuridicoServico clienteJuridicoServico = new ClienteJuridicoServico(clienteJuridicoRepositorioMemoria);
+
+//                                   * CADASTRAR CLIENTE JURÍDICO *
+
+        cadastraClienteJuridico(clienteJuridicoServico);
+
+//                                     * BUSCAR CLIENTE JURÍDICO *
+
+        buscaClienteJuridicoPorId(clienteJuridicoServico);
+
+//                                    * ATUALIZAR CLIENTE JURÍDICO *
+
+        atualizaClienteJuridico(clienteJuridicoServico);
+
+//                                * LISTAR TODOS OS CLIENTES JURÍDICOS *
+
+        listaTodosClientesJuridicos(clienteJuridicoServico);
+
+    }
+
+    static void cadastraClienteFisico (ClienteFisicoServico clienteFisicoServico){
 
         ClienteFisico clienteFisico1 = new ClienteFisico("Claudio Silva",
                 "Rua das Magnolias, 313, Santo André, São Paulo", null, "045.786.543-65");
@@ -36,7 +83,6 @@ public class TerminalCliente {
                 "Rua das Camelias, 654, São Bernardo, São Paulo", null, "324.654.899-56");
 
 
-
         System.out.println(CADASTRO_CLIENTE_FISICO_MESSAGEM + clienteFisico1.getId());
         clienteFisicoServico.cadastrar(clienteFisico1);
 
@@ -45,61 +91,58 @@ public class TerminalCliente {
 
         System.out.println(CADASTRO_CLIENTE_FISICO_MESSAGEM + clienteFisico3.getId());
         clienteFisicoServico.cadastrar(clienteFisico3);
+    }
+    static void buscaClienteFisicoPorId (ClienteFisicoServico clienteFisicoServico){
 
-
-        // BUSCAR CLIENTE FÍSICO POR ID
         try {
-            System.out.println(String.format(BUSCA_CLIENTE_FISICO_MESSAGEM , 1));
-            ClienteFisico clienteFisicoBuscado1 = clienteFisicoServico.buscarPorId(clienteFisico1.getId());
+            System.out.println(String.format(BUSCA_CLIENTE_FISICO_MESSAGEM , 2));
+            ClienteFisico clienteFisicoBuscado1 = clienteFisicoServico.buscarPorId("045.786.543-65");
             System.out.println("Cliente Fisico encontrado! \n Id: " + clienteFisicoBuscado1.getId() + "\n" + clienteFisicoBuscado1.getNome() + "\n" + clienteFisicoBuscado1.getEndereco());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
         try {
-            System.out.println(String.format(BUSCA_CLIENTE_FISICO_MESSAGEM , 1));
-            ClienteFisico clienteFisicoBuscado2 = clienteFisicoServico.buscarPorId(clienteFisico2.getId());
+            System.out.println(String.format(BUSCA_CLIENTE_FISICO_MESSAGEM , 2));
+            ClienteFisico clienteFisicoBuscado2 = clienteFisicoServico.buscarPorId("954.654.655-56");
             System.out.println("Cliente Fisico encontrado! \n Id: " + clienteFisicoBuscado2.getId() + "\n" + clienteFisicoBuscado2.getNome() + "\n" + clienteFisicoBuscado2.getEndereco());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
         try {
-            System.out.println(String.format(BUSCA_CLIENTE_FISICO_MESSAGEM , 1));
-            ClienteFisico clienteFisicoBuscado3 = clienteFisicoServico.buscarPorId(clienteFisico3.getId());
+            System.out.println(String.format(BUSCA_CLIENTE_FISICO_MESSAGEM , 2));
+            ClienteFisico clienteFisicoBuscado3 = clienteFisicoServico.buscarPorId("324.654.899-56");
             System.out.println("Cliente Fisico encontrado! \n Id: " + clienteFisicoBuscado3.getId() + "\n" + clienteFisicoBuscado3.getNome() + "\n" + clienteFisicoBuscado3.getEndereco());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    static void atualizaClienteFisico (ClienteFisicoServico clienteFisicoServico){
 
-        // ATUALIZAR CLIENTE FÍSICO
+        ClienteFisico clienteFisico1atualizado = new ClienteFisico("Claudio Silva Souza",
+                "Rua das Flores, 313, Manto Santo, São Paulo", null, "045.786.543-65" );
+        System.out.println(String.format(ATUALIZACAO_CLIENTE_FISICO_MESSAGEM, clienteFisico1atualizado.getId()));
+        clienteFisicoServico.atualizar(clienteFisico1atualizado.getId(), clienteFisico1atualizado);
 
         try {
-            System.out.println(String.format(ATUALIZACAO_CLIENTE_FISICO_MESSAGEM, 3));
-            clienteFisico1.setNome("Fernando Albuquerque");
-            clienteFisico1.setEndereco("Rua das Camelias, 654, São Bernardo, São Paulo");
-            ClienteFisico clienteFisico1Atualizado = clienteFisicoServico.atualizar(clienteFisico1.getId(), clienteFisico1);
-            System.out.println("Cliente Fisico atualizado! \n Id: " + clienteFisico1Atualizado.getId() + "\n" +  clienteFisico1Atualizado.getNome() + "\n" +  clienteFisico1Atualizado.getEndereco() + "\n" +  clienteFisico1Atualizado.getCarrosAlugados());
+            System.out.println("Cliente atualizado! \n Id: " + clienteFisico1atualizado.getId() + "\n"
+                    +  clienteFisico1atualizado.getNome() + "\n" +  clienteFisico1atualizado.getEndereco() + "\n"
+                    +  clienteFisico1atualizado.getCarrosAlugados());
         }catch (Exception e){
             throw new RuntimeException("Não foi possível atualizar");
         }
+    }
+    static void listaTodosClientesFisicos (ClienteFisicoServico clienteFisicoServico){
 
-//
-
-//         LISTAR TODOS
         System.out.println(String.format(LISTAGEM_CLIENTE_FISICO_MESSAGEM, 4));
         List<ClienteFisico> todosClientesFisicos = clienteFisicoServico.listarTodos();
         for (ClienteFisico clientesFisicos : todosClientesFisicos) {
             System.out.println(clientesFisicos.getNome());
         }
+    }
 
-
-
-        
-
-        // ------------ CLIENTE JURÍDICO ------------
-        ClienteJuridicoRepositorioMemoria clienteJuridicoRepositorioMemoria = new ClienteJuridicoRepositorioMemoria();
-        ClienteJuridicoServico clienteJuridicoServico = new ClienteJuridicoServico(clienteJuridicoRepositorioMemoria);
+    static void cadastraClienteJuridico (ClienteJuridicoServico clienteJuridicoServico){
 
         ClienteJuridico clienteJuridico1 = new ClienteJuridico( "Springer Carrier Ltda",
                 "Rua Getulio Vargas, 675, São Caetano, São Paulo", null, "12.232.343/3434-34");
@@ -120,21 +163,20 @@ public class TerminalCliente {
         System.out.println((CADASTRO_CLIENTE_JURIDICO_MESSAGEM + clienteJuridico3.getId()));
         clienteJuridicoServico.cadastrar(clienteJuridico3);
 
-
-
-        // BUSCAR CLIENTE JURÍDICO POR ID
+    }
+    static void buscaClienteJuridicoPorId (ClienteJuridicoServico clienteJuridicoServico){
 
         try {
-            System.out.println(String.format(BUSCA_CLIENTE_JURIDICO_MESSAGE, 2));
-            ClienteJuridico clienteJuridicoBuscado1 = clienteJuridicoServico.buscarPorId(clienteJuridico1.getId());
-            System.out.println("Cliente Jurídico encontrado! \n id: " + clienteJuridicoBuscado1.getId() + "\n" + clienteJuridicoBuscado1.getNome() + "\n" + clienteJuridicoBuscado1.getEndereco());
+            System.out.println(String.format(BUSCA_CLIENTE_JURIDICO_MESSAGE , 2));
+            ClienteJuridico clienteJuridicoBuscado1 = clienteJuridicoServico.buscarPorId("12.232.343/3434-34");
+            System.out.println("Cliente Jurídico encontrado! \n Id: " + clienteJuridicoBuscado1.getId() + "\n" + clienteJuridicoBuscado1.getNome() + "\n" + clienteJuridicoBuscado1.getEndereco());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
         try {
             System.out.println(String.format(BUSCA_CLIENTE_JURIDICO_MESSAGE, 2));
-            ClienteJuridico clienteJuridicoBuscado2 = clienteJuridicoServico.buscarPorId(clienteJuridico2.getId());
+            ClienteJuridico clienteJuridicoBuscado2 = clienteJuridicoServico.buscarPorId("09.232.343/3434-35");
             System.out.println("Cliente Jurídico encontrado! \n id: " + clienteJuridicoBuscado2.getId() + "\n" + clienteJuridicoBuscado2.getNome() + "\n" + clienteJuridicoBuscado2.getEndereco());
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -142,31 +184,34 @@ public class TerminalCliente {
 
         try {
             System.out.println(String.format(BUSCA_CLIENTE_JURIDICO_MESSAGE, 2));
-            ClienteJuridico clienteJuridicoBuscado3 = clienteJuridicoServico.buscarPorId(clienteJuridico3.getId());
+            ClienteJuridico clienteJuridicoBuscado3 = clienteJuridicoServico.buscarPorId("09.232.343/3434-35");
             System.out.println("Cliente Jurídico encontrado! \n id: " + clienteJuridicoBuscado3.getId() + "\n" + clienteJuridicoBuscado3.getNome() + "\n" + clienteJuridicoBuscado3.getEndereco());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    static void atualizaClienteJuridico (ClienteJuridicoServico clienteJuridicoServico){
 
+        ClienteJuridico clienteJuridico1Atualizado = new ClienteJuridico("Spring Car",
+                "Rua dos Namorados, 654, São salvador, Rio de Janeiro", null, "12.232.343/3434-34");
+        System.out.println(String.format(ATUALIZACAO_CLIENTE_JURIDICO_MESSAGEM, clienteJuridico1Atualizado.getId()));
+        clienteJuridicoServico.atualizar(clienteJuridico1Atualizado.getId(), clienteJuridico1Atualizado);
 
-        // ATUALIZAR CLIENTE JURÍDICO
-       try {
-            System.out.println(String.format(ATUALIZACAO_CLIENTE_JURIDICO_MESSAGEM, 3));
-            clienteJuridico1.setNome("Spring Car");
-            clienteJuridico1.setEndereco("Rua dos Namorados, 654, São salvador, Rio de Janeiro");
-            ClienteJuridico clienteJuridico1Atualizado = clienteJuridicoServico.atualizar(clienteJuridico1.getId(), clienteJuridico1);
-            System.out.println("Cliente Jurídico atualizado! \n Id: " + clienteJuridico1Atualizado.getId() + "\n" +  clienteJuridico1Atualizado.getNome() + "\n" +  clienteJuridico1Atualizado.getEndereco() + "\n" +  clienteJuridico1Atualizado.getCarrosAlugados());
+        try {
+            System.out.println("Cliente atualizado! \n Id: " + clienteJuridico1Atualizado.getId() + "\n"
+                    +  clienteJuridico1Atualizado.getNome() + "\n" +  clienteJuridico1Atualizado.getEndereco() + "\n"
+                    +  clienteJuridico1Atualizado.getCarrosAlugados());
         }catch (Exception e){
             throw new RuntimeException("Não foi possível atualizar");
         }
+    }
+    static void listaTodosClientesJuridicos (ClienteJuridicoServico clienteJuridicoServico) {
 
-//         LISTAR TODOS
         System.out.println(LISTAGEM_CLIENTE_JURIDICO_MESSAGEM);
         List<ClienteJuridico> todosClientesJuridicos = clienteJuridicoServico.listarTodos();
         for (ClienteJuridico clientesJuridicos : todosClientesJuridicos) {
             System.out.println(clientesJuridicos.getNome());
         }
-
     }
 
 }
