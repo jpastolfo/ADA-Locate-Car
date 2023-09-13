@@ -52,6 +52,7 @@ public class CarroServico {
                     precoPorHora = 100.00;
                 }
                 cliente.getCarrosAlugados().add(carro);
+                carro.setAlugado(true);
                 precoTotal = precoPorHora * horasAlugadas;
                 System.out.println("Preço total: " + precoTotal);
             } else if (cliente instanceof ClienteJuridico) {
@@ -61,6 +62,7 @@ public class CarroServico {
                     precoPorHora = 150.00;
                 }
                 cliente.getCarrosAlugados().add(carro);
+                carro.setAlugado(true);
                 precoTotal = precoPorHora * horasAlugadas;
                 System.out.println("Preço total: " + precoTotal);
             } else {
@@ -76,9 +78,11 @@ public class CarroServico {
         if (carro.isAlugado()) {
             if (cliente instanceof ClienteFisico) {
                 cliente.getCarrosAlugados().remove(carro);
+                carro.setAlugado(false);
                 System.out.println("Carro devolvido com sucesso!");
             } else if (cliente instanceof ClienteJuridico) {
                 cliente.getCarrosAlugados().remove(carro);
+                carro.setAlugado(false);
                 System.out.println("Carro devolvido com sucesso!");
             }
         } else {
