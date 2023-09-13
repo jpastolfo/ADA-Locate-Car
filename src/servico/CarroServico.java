@@ -1,8 +1,10 @@
 package servico;
 
-import modelo.Carro;
+import modelo.*;
 import persistencia.CarroRepositorio;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class CarroServico {
@@ -32,6 +34,55 @@ public class CarroServico {
             throw new Exception("Carro não encontrado.");
         } else {
             return carroRepositorio.buscarPorId(placa);
+        }
+    }
+
+    public void alugarCarro(Cliente cliente, Carro carro, LocalDateTime dataHoraFim) {
+
+        Duration duracaoAluguel = Duration.between(LocalDateTime.now(), dataHoraFim);
+        long horasAlugadas = duracaoAluguel.toHours();
+        double precoPorHora = 0.0;
+        double precoTotal = 0.0;
+
+        if (!carro.isAlugado()) {
+            if (cliente instanceof ClienteFisico) {
+                if (horasAlugadas > 5 * 24) {
+                    precoPorHora = 0.95 * 100.00;
+                } else {
+                    precoPorHora = 100.00;
+                }
+                cliente.getCarrosAlugados().add(carro);
+                precoTotal = precoPorHora * horasAlugadas;
+                System.out.println("Preço total: " + precoTotal);
+            } else if (cliente instanceof ClienteJuridico) {
+                if (horasAlugadas > 3 * 24) {
+                    precoPorHora = 0.90 * 150.00;
+                } else {
+                    precoPorHora = 150.00;
+                }
+                cliente.getCarrosAlugados().add(carro);
+                precoTotal = precoPorHora * horasAlugadas;
+                System.out.println("Preço total: " + precoTotal);
+            } else {
+                System.out.println("Tipo de cliente não reconhecido.");
+            }
+        } else {
+            System.out.println("O carro já está alugado. Não é possível completar a operação!");
+        }
+
+    }
+
+    public void devolverCarro(Cliente cliente, Carro carro) {
+        if (carro.isAlugado()) {
+            if (cliente instanceof ClienteFisico) {
+                cliente.getCarrosAlugados().remove(carro);
+                System.out.println("Carro devolvido com sucesso!");
+            } else if (cliente instanceof ClienteJuridico) {
+                cliente.getCarrosAlugados().remove(carro);
+                System.out.println("Carro devolvido com sucesso!");
+            }
+        } else {
+            System.out.println("O carro não está alugado. Não é possível completar aoperação!");
         }
     }
 
@@ -78,5 +129,7 @@ public class CarroServico {
         Carro carroEncontrado = buscarPorPlaca(id);
         return carroEncontrado != null;
     }
+
+
 
 }
