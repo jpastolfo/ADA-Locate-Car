@@ -24,26 +24,32 @@ public class TerminalCarro {
 
     public static void main(String[] args) {
 
-        // CARRO
+//                                       ------------ VEÍCULO - CARRO ------------
+
         CarroRepositorio carroRepositorioMemoria = new CarroRepositorioMemoria();
         CarroServico carroServico = new CarroServico(carroRepositorioMemoria);
 
-        // CADASTRANDO CARROS
+//                                                 * CADASTRAR CARROS *
+
         cadastraCarro(carroServico);
 
-        // BUSCAR CARRO POR PLACA ID 1 E ID 2
+//                                             * BUSCAR CARROS POR PLACA *
+
         buscaPorPlaca(carroServico);
 
-        // REMOVER CARRO POR ID E DEPOIS BUSCAR PARA VERIFICAR SE FOI REMOVIDO
+//                                                 * REMOVER CARROS *
         removeCarro(carroServico);
 
-        // BUSCAR CARROS POR PARTE NOME
+//                                              * BUSCAR CARROS POR NOME *
+
        buscaPorNome(carroServico);
 
-        // ATUALIZAR CARRO
+//                                                 * ATUALIZAR CARRO *
+
         atualizaCarro(carroServico);
 
-        // LISTAR TODOS CARROS
+//                                                  * LISTAR CARROS *
+
         listaCarros(carroServico);
     }
 
