@@ -80,8 +80,8 @@ Os usuários podem listar todos os clientes cadastrados na locadora.
 Você pode [acessar o código fonte do projeto](https://github.com/jpastolfo/ADA-Locate-Car).
 
 ## Desenvolvedores
-Bruno Silva
-João Astolfo
-Pedro Queiroz
-Gabriel Ventura
-Lucas Ziembowicz
+| <a href="https://github.com/BrunoSDMDev"> Bruno Silva </a> |
+<a href="https://github.com/jpastolfo"> João Astolfo </a> |
+<a href="https://github.com/PedroQueiroz1"> Pedro Queiroz </a> |
+<a href="https://github.com/gventura10"> Gabriel Ventura </a> |
+<a href="https://github.com/Lucasziem"> Lucas Ziembowicz </a> |
